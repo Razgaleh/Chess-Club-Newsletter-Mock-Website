@@ -1,0 +1,160 @@
+<!DOCTYPE html>  <!--declaring the document as +html document-->
+<html lang="en"> <!--specifying the website's language-->
+  
+    <head>  <!--- header tag, setting the header informations ---> 
+        
+         <!-- settting the meta tags --> 
+        
+        <meta charset="utf-8">  <!---setting character encoding--->
+        <meta name="Author" content="Fatemeh Abbasi Razgaleh">  <!--setting the author-->
+        <meta name="description" content="Goldsmith's Chess Club Newsletter Join Page is a form for new to-be-members to fill out. This way they can be in touch with the club easily through their inbox."> <!-- Join page description for the search engines and general description anyhow-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">  <!-- Setting the display options, we need to set this to initial scale 1 for all the @media queries in the css file to work-->
+        
+        <title> Join - Goldsmith Chess Club Newsletter</title> <!--- Page title --->
+        
+        <!---Referecing css, javascript & css libraries and shortcut icons --->
+        
+        <link rel="shortcut icon" type="image/png" href="images/chess.png"> <!--creating the tab icons, credit to flaticon.com contributor mansaabguru -->
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!---using font awesome social icons library, referencing them here for the css file to access this online library-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> <!-- referencing the google fonts apis for the font used in this page -->
+        
+        <link rel="stylesheet" href="stylesheet.css"> <!--- adding css to this file by referencing the css file --->
+        <script src="JavaScript.js" defer></script> <!--- referencing javascript page for the html for find it --->
+        
+                
+        <script src="https://kit.fontawesome.com/aea3a9b48b.js" crossorigin="anonymous"></script>  <!--- Font Awesome kit for hamburger menu ---->
+    </head>
+    
+    <!-- body content of the html --->
+    <body>
+        
+         <!-- header used accross all pages consisting of Logo and top navigation bar -->
+        <header>
+
+            <div class="navbar"> <!--navbar class -->
+                
+                <!-- logo -->
+                <a href="index.html"><img src="images/logo.png" alt="Goldsmith Chess Club Newsletter Logo" class="logo"></a>
+                
+                <!-- For the hamburger menu I found an online tutorial : https://youtu.be/ydZc17rlR5E by Florin Pop and used some of his code after I fully understood it, it's pretty straight forward actually: you create a button, import the symbol using font awesome, then using @media queries css we, set the properties of the button to hide when the screen is big enough and we don't need a hamburger menu , but when the page is small, we set the navigation link to hide and the hamburger menu to show. Later we manipulate this in javascript using an event listener that checks for a click on the element id bars as soon as bars is clicked, it changes the css property of navigation links to show -->
+                <!--Creating a Hamburger button for the smaller screens and responsiveness --->
+                <!-- this button gets manipulted in both css and java script-->
+                <button class="bars" >
+                    <i id="bars" class="fas fa-bars"></i> <!-- Hamburger menu bars -->
+                </button>
+                
+                <!--For the navigation bar code, I was inspired by Kevin Powell's code on CodePen 
+                http://codepen.io/kevinpowell/pen/GrLKNo. after fully grasping what he did.
+                I have changed multiple things in the code, such as, changing the position of the nav bar, adding a:hover effects, using my fonts and colors, changing the height of the animation bar and etc. I have also added a hamburger menu for smaller size screens-->
+                
+                <!-- Navigation Menu -->
+                <nav>  
+                    <ul class="navigation" id="navigation">
+                        <li><a id="Join" href="Join.html">Join</a></li>
+                        <li><a href="News.html">News</a></li>
+                        <li><a href="Beginner-Lessons.html">Beginner Lessons</a></li>
+                        <li><a href="About-Us.html">About Us</a></li>       
+                    </ul> 
+                </nav>
+            </div>
+        </header>
+
+        <!--For breadcrumb navigation i was inspired by w3school's simple article on it which I tried to implement after fully understanding it. I fully changed the code to implement in the website for example, I changed the typical styles, such as margins, padding, background, font-size, display, etc. I also changed the symbols between the navigations links. The code is very simple, I really didn't have to look for it online, but I have to say I was inspired by that.
+        https://www.w3schools.com/howto/howto_css_breadcrumbs.asp-->
+        
+        <!-- Breadcrumb Navigation -->
+        <ul class="breadcrumb-nav">
+        <!-- its purpose is that the user knows which page they have opened -->
+          <li><a href="index.html">Home</a></li>
+          <li>Join</li>  <!-- not linked because we are already at the page -->
+        </ul>
+       <!-- Here is page's main content -->
+        
+         
+        <main>
+            
+            <!-- Headline-->
+            <h1>Join Goldsmith Chess Club Newsletter</h1>
+            <h2>(gccn)</h2> <!--Acronym -->
+            
+            <p>Please fill out the following form to formally join our club. GCCN doesn't require any membership fees. If you would like to join our email newsletter, feel free to check the appropriate box in the form. The newsletter emails keep you updated on the latest meetings and tournaments in our club as well as the lastest news in the chess world. </p>
+
+            <!--Join form that uses Javascript, CSS and HTML-->
+            <!-- The HTML code creates the boxes in one class called #form and that is divided into 3 divisions, and using CSS flexbox they are in columns. The JS code, makes sure the the inputs are properly filled and without them the user cannot join the news letter. It also adds some accessibility features, by highting the forms-->
+            <!--I looked up the properies of form on W3School to make this code and that was https://www.w3schools.com/html/html_forms.asp I saw how it was implem,ented for first name and lastname and I implemented the code myself for email and checkbox and buttons as well the JavaScript-->
+            <form name="join" id="form">
+                
+                <div class="name"> <!-- For the first name and the last name -->
+                    <div class=fname> <!-- First name lable and input-->
+                        <label for="fname" class="fname-label"><strong>First Name</strong></label>
+                        <input type="text" required id="fname" name="fname" >
+                    </div>
+                    <div class="lname"> <!-- Last name label and input-->
+                        <label for="lname" class="lname-label"><strong>Last Name</strong> </label>
+                        <input type="text" required id="lname" name="lname" > 
+                    </div>
+                </div>
+                
+                <div class="email"> <!--Email label and input-->
+                    <label for="email"><strong>Email Address</strong></label>
+                    <input type="email" id="mail" name="mail" required minlength="8">
+                    
+                </div>
+                        <!-- Checkbox and submit button-->
+                <div class="buttons">
+                    <input type="checkbox" id="checkbox">
+                    <label for="checkbox" id="checkbox-label"><strong>I would also like to join GCCN email newsletter.</strong></label><br><br>
+
+                    <input type="button" id="submit" value="Submit">
+                </div>
+            </form> 
+            
+
+            <p>We hope to see you soon in our meetings and tournaments and get to play few rounds of chess with you! If you are new to chess, no worries at all! Our club members are always looking forward to welcoming new members and teaching them the ways of chess! Also, definitely check out our <a href="Beginner-Lessons.html">Beginner Lessons</a>, it should be a good starting point!</p>
+            
+        
+        </main>
+        
+        <!-- here is the footer that is used across all the pages of the website -->
+           
+        <footer>
+            
+            <!-- Putting all the navigation links inside a class .footernav-->
+            <div class="footer-nav">
+                <ul> <!-- Unordered list, same as navigation bar -->
+                <li><a href="index.html">➣ Home </a></li>
+                <li><a href="Join.html">➣ Join </a></li>
+                <li><a href="News.html">➣ News</a></li>
+                <li><a href="Beginner-Lessons.html"> ➣ Beginner Lessons</a></li>
+                <li><a href="About-Us.html">➣ About Us</a></li>       
+                </ul> 
+            </div>
+            <!-- Social media icons -->
+            <!-- To create social media icons, I learned from  w3school page: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp .  After fully understanding what it does, I tried to implement it. What it basically does is: it uses a font aweosme icon library and each element is called in by a specific font awesome class and then you easily style the icons as normals using css. i.e. giving it a backgroubnd etc. I added links and edited the links to have realistic accounts -->
+            <div class="socialmedia">
+                <div class="contact-us">
+                <h4><a href ="mailto: gccn2021@uol.com">Contact Us</a></h4>
+                </div>
+                <div class=icons>
+                <a href="https://www.facebook.com/GCCN2021" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/GCCN2021" class="fa fa-instagram"></a>  
+                <a href="https://www.twitch.com/GCCN2021" class="fa fa-twitch"></a>
+                </div>
+                 <!-- copyrights and year -->
+                <div class="copy-right">
+                     <p>© 2021 Goldsmith Chess Club News Letter </p>
+                </div>
+            </div>
+        </footer>
+
+        
+        
+        
+        
+        
+
+      
+    </body>
+            
+</html>

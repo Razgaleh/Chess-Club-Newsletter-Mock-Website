@@ -1,0 +1,233 @@
+<!DOCTYPE html>  <!--declaring the document as +html document-->
+<html lang="en"> <!--specifying the website's language--> 
+  
+    <head>  <!--- header tag, setting the header informations ---> 
+        
+         <!-- settting the meta tags --> 
+        
+        <meta charset="utf-8">  <!---setting character encoding--->
+        <meta name="Author" content="Fatemeh Abbasi Razgaleh">  <!--setting the author-->
+        <meta name="description" content="Goldsmith's Chess Club Newsletter Home Page aims to keep the club members updated on the meetings, latest tournaments, tournaments results. In addition, the website includes lessons for beginners, articles, latest news in chess world and an About Us "> <!-- Home page description for the search engines and general description anyhow -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Setting the display options, we need to set this to initial scale 1 for all the @media queries in the css file to work-->
+        
+        <title> Home - Goldsmith Chess Club Newsletter</title> <!--- Page title --->
+        
+        <!---Referecing css, javascript & css libraries and shortcut icons --->
+        
+        <link rel="shortcut icon" type="image/png" href="images/chess.png"> <!--creating the tab icons, credit to flaticon.com contributor mansaabguru -->
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!---using font awesome social icons library, referencing them here for the css file to access this online library-->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet"> <!-- referencing the google fonts apis for the font used in this page -->
+        
+        <link rel="stylesheet" href="stylesheet.css"> <!--- adding css to this file by referencing the css file --->
+        <script src="JavaScript.js" defer></script> <!--- referencing javascript page for the html for find it --->  
+        
+        <script src="https://kit.fontawesome.com/aea3a9b48b.js" crossorigin="anonymous"></script>  <!--- Font Awesome kit for hamburger menu ---->
+        
+    </head>
+
+
+    <!-- body content of the html --->
+    <body>
+        
+         <!-- header used accross all pages consisting of Logo and top navigation bar -->
+        <header>
+            <div class="navbar"> <!--navbar class -->
+                
+                <!-- logo -->
+                <a href="index.html"><img src="images/logo.png" alt="Goldsmith Chess Club Newsletter Logo" class="logo"></a>
+                
+                <!-- For the hamburger menu I found an online tutorial : https://youtu.be/ydZc17rlR5E by Florin Pop and used some of his code after I fully understood it, it's pretty straight forward actually: you create a button, import the symbol using font awesome, then using @media queries css we, set the properties of the button to hide when the screen is big enough and we don't need a hamburger menu , but when the page is small, we set the navigation link to hide and the hamburger menu to show. Later we manipulate this in javascript using an event listener that checks for a click on the element id bars as soon as bars is clicked, it changes the css property of navigation links to show  -->
+                <!--Creating a Hamburger button for the smaller screens and responsiveness --->
+                <!-- this button gets manipulted in both css and java script-->
+                <button class="bars" id="bars">
+                    <i class="fas fa-bars"></i> <!-- Hamburger menu bars -->
+                </button>
+                
+                
+                <!--For the navigation bar code, I was inspired by Kevin Powell's code on CodePen 
+                http://codepen.io/kevinpowell/pen/GrLKNo. after fully grasping what he did.
+                I have changed multiple things in the code, such as, changing the position of the nav bar, adding a:hover effects, using my fonts and colors, changing the height of the animation bar and etc. I have also added a hamburger menu for smaller size screens-->
+                <!-- Navigation Menu Links -->
+                <nav>  
+                    <ul class="navigation" id="navigation">
+                        <li><a id="Join" href="Join.html">Join</a></li>
+                        <li><a href="News.html">News</a></li>
+                        <li><a href="Beginner-Lessons.html">Beginner Lessons</a></li>
+                        <li><a href="About-Us.html">About Us</a></li>       
+                    </ul> 
+                </nav>
+            </div> <!-- End of navbar div -->
+        </header>
+        
+        <!--For breadcrumb navigation i was inspired by w3school's simple article on it which I tried to implement after fully understanding it. I fully changed the code to implement in the website for example, I changed the typical styles, such as margins, padding, background, font-size, display, etc. I also changed the symbols between the navigations links. The code is very simple, I really didn't have to look for it online, but I have to say I was inspired by that.
+        https://www.w3schools.com/howto/howto_css_breadcrumbs.asp-->
+        
+        <!-- Breadcrumb Navigation -->
+        
+        <section class="breadcrumb-nav">
+            <!-- its purpose is that the user knows which page they have opened -->
+            <ul class="breadcrumb-nav">
+              <li>Home</li> <!-- not linked because we are already at the page -->    
+            </ul>
+        </section>
+        
+       <!-- Here is page's main content -->
+        <main>   
+            <div class="all-home">  <!-- Assigned every content inside the main page  a class of .all-home so that they would be easily manipulated through flexbox in thee css file  -->
+                <div class="first-column"> <!-- Assigned it the Latest News and Join so that they can always be in a column structure for desktop and laptop-->
+
+                    <div class=home-news>  <!--- All the links here are assigned to /news.html page since I don't have content somewhere else -->
+                        
+                        <div class=home-news-title> <!--The title that shows what this section is on the page-->
+                            <h2><a href="News.html">Latest News</a></h2> <!-- Using semantic tags h2 to emphasis it more -->
+                        </div>
+                        <div class="home-news-box">
+                            <div class="home-news-article">   <!-- giving all three headlines same class .home-news-article so that when I addresss them in css, I address all three of them -->
+                                    <h3 class="home-left"><a href="News.html"> ➣ Watch GCCN's 1<sup>st</sup> Online Tournament 2021 on Twitch</a></h3>  <!-- Using semantic tags h3 since each one is still a headline -->
+                            </div>
+
+                            <div class="home-news-article">
+                                        <h3 class="home-left"><a href="News.html"> ➣ UK to hold online Qualification Tournaments for FIDE World Cup 2021</a></h3> <!-- Using semantic tags h3 since each one is still a headline -->
+                            </div>
+
+                            <div class="home-news-article">
+                                        <h3 class="home-left"><a href=News.html> ➣ Covid Resctrictions on GCCN Meetings</a></h3>  <!-- Using semantic tags h3 since each one is still a headline -->
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="join-member">  <!--Join us section-->
+                        <div class="join-title"> <!--The title that shows what this section is on the page-->
+                            <h2>Join</h2>  <!-- Using semantic tags h2 to emphasis it more -->
+                        </div>
+                        <div class="join-photo"> 
+                            <a href="Join.html"><img alt="Close up of chess pieces in one row with the text become a member over the photo" src="images/randy-fath-unsplash.jpg"></a> 
+                            <!-- I basically added a photo with the text become a member  --->
+                            <!-- Credit of photo to Randy Fath contributor on unsplash -->
+                            <!-- https://unsplash.com/photos/G1yhU1Ej-9A -->
+                            <!---alt tag as accessibility feature for users with vision impairment--->
+                        </div>
+                    </div>
+                </div>  <!--- End of first column -->
+
+                <!-- For the Mock calendar in the home page I was inspired by the mock calendar that user @jamiemggs had posted on codepen, https://codepen.io/jamiemggs/pen/xdvaJv, so I have used some of their code after I fully understood it but changed many things to match it to my website for example, used fewer classes, removed border radius, matched the background colors, changed how to the dates with an agenda look, I also implemented the calendar inside the page using flexbox and etc etc. -->
+                
+                <!-- I didn't add an unnecessairy division here, but this is basically the second column inside the flexbox in the css page-->
+                <div class="calendar">
+                    <div class="cal-title"> <!--The title that shows what this section is on the page-->
+                        <h2>Events</h2>  <!-- Using semantic tags h2 to emphasis it more -->
+                    </div>
+                    <div class="cal-box"> <!--- Creating the box with the dates and months -->
+                        <div class="cal-month">March 2021</div>
+                        <!-- Using span since it's easily an in-line tag -->
+                        <div class="cal-days">
+                            <div class="cal-rows">
+                                <span>Su</span> <!-- Days of the week -->
+                                <span>Mo</span>
+                                <span>Tu</span>
+                                <span>We</span>
+                                <span>Th</span>
+                                <span>Fr</span>
+                                <span>Sa</span>
+                            </div>
+                            <div class="cal-rows">
+                                <span class="empty"><!--BLANK--></span>  <!--No Dates -->
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span>1</span>  <!--Date -->
+                            </div>    
+                            <div class="cal-rows">
+                                <span class="highlight" data-title="1st online meeting!">2</span> <!--Agenda -->
+                                <span>3</span>  
+                                <span>4</span>  
+                                <span>5</span>  
+                                <span>6</span>  
+                                <span>7</span>
+                                <span>8</span>
+                            </div>
+                            <div class="cal-rows">
+                                <span>9</span>
+                                <span>10</span>
+                                <span>11</span>
+                                <span class="highlight" data-title="1st online twitch tournament!">12</span> <!--Agenda -->
+                                <span>13</span>
+                                <span>14</span>
+                                <span>15</span>
+                            </div>
+                            <div class="cal-rows">
+                                <span>16</span>
+                                <span>17</span>
+                                <span>18</span>
+                                <span>19</span>
+                                <span>20</span>
+                                <span>21</span>
+                                <span>22</span>
+                            </div>
+                            <div class="cal-rows">
+                                <span>23</span>
+                                <span>24</span>
+                                <span class="highlight" data-title="UK Qualification deadlines!">25</span> <!--Agenda -->
+                                <span>26</span>
+                                <span>27</span>
+                                <span>28</span>
+                                <span>29</span>
+                            </div>
+                            <div class="cal-rows">
+                                <span>30</span>
+                                <span class="empty"><!--BLANK--></span> <!-- No Dates -->
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                                <span class="empty"><!--BLANK--></span>
+                            </div>
+                            </div>
+                    </div>  <!-- End of calendar box -->
+                </div> <!-- End of Calendar Widget -->
+            </div> <!--End of .all-home -->
+        </main> <!-- End of main content inside the body -->
+        
+        
+        <!-- here is the footer that is used across all the pages of the website -->
+           
+        <footer>
+            
+            <!-- Putting all the navigation links inside a class .footernav-->
+            <div class="footer-nav">
+                <ul> <!-- Unordered list, same as navigation bar -->
+                <li><a href="index.html">➣ Home </a></li>
+                <li><a href="Join.html">➣ Join </a></li>
+                <li><a href="News.html">➣ News</a></li>
+                <li><a href="Beginner-Lessons.html"> ➣ Beginner Lessons</a></li>
+                <li><a href="About-Us.html">➣ About Us</a></li>       
+                </ul> 
+            </div>
+            <!-- Social media icons -->
+            <!-- To create social media icons, I learned from  w3school page: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp .  After fully understanding what it does, I tried to implement it. What it basically does is: it uses a font aweosme icon library and each element is called in by a specific font awesome class and then you easily style the icons as normals using css. i.e. giving it a backgroubnd etc. I added links and edited the links to have realistic accounts -->
+            <div class="socialmedia">
+                <div class="contact-us">
+                <h4><a href ="mailto: gccn2021@uol.com">Contact Us</a></h4>
+                </div>
+                <div class=icons>
+                <a href="https://www.facebook.com/GCCN2021" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/GCCN2021" class="fa fa-instagram"></a>  
+                <a href="https://www.twitch.com/GCCN2021" class="fa fa-twitch"></a>
+                </div>
+                 <!-- copyrights and year -->
+                <div class="copy-right">
+                     <p>© 2021 Goldsmith Chess Club News Letter </p>
+                </div>
+            </div>
+           
+            
+           
+        </footer>
+
+      
+    </body>
+            
+</html>

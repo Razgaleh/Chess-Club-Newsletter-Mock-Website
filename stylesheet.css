@@ -1,0 +1,4634 @@
+/*
+
+=================
+TABLE OF CONTENTS
+=================
+1. GLOBAL STYLES
+    1.1 font
+    1.2 body 
+    1.3 h1,h2, main p, main p a, main p a:hover
+
+2. DESKTOP STYLES
+    2.1 Navigation Bar
+    2.2 Breadcrumb Navigation
+    2.3 Home Page Styles
+    2.4 Join Page Styles
+    2.5 News Page Styles
+    2.6 Beginner Lessons Styles
+    2.7 About Us Styles
+    2.8 Footer Styles
+
+3. LAPTOP STYLES
+    3.1 Navigation Bar
+    3.2 Breadcrumb Navigation
+    3.3 Home Page Styles
+    3.4 Join Page Styles
+    3.5 News Page Styles
+    3.6 Beginner Lessons Styles
+    3.7 About Us Styles
+    3.8 Footer Styles
+
+4. TABLET STYLES
+    4.1 Navigation Bar
+    4.2 Breadcrumb Navigation
+    4.3 Home Page Styles
+    4.4 Join Page Styles
+    4.5 News Page Styles
+    4.6 Beginner Lessons Styles
+    4.7 About Us Styles
+    4.8 Footer Styles
+
+5. PHONE STYLES
+    5.1 Navigation Bar
+    5.2 Breadcrumb Navigation
+    5.3 Home Page Styles
+    5.4 Join Page Styles
+    5.5 News Page Styles
+    5.6 Beginner Lessons Styles
+    5.7 About Us Styles
+    5.8 Footer Styles
+
+
+*/
+
+/* Media Queries*/
+/*
+$desktop:1200px;
+$laptop:992px;
+$tablet:768px;
+$phone:480px;
+*/
+
+/*=============
+1.GLOBAL STYLES 
+==============*/
+
+/*1.1*/
+/*--------At-rule to importing Montserrat font from Google Fonts Collection---------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');  
+
+/*1.2*/
+/*-------------Body--------------------*/
+body {
+    margin: 0;    /* setting the margin to 0 */
+    background: white;  /* setting the background to white */
+    font-family: 'Montserrat', sans-serif; /* telling the body what font to use */
+    font-weight: 400;  /* setting the font weight */
+}
+
+/*1.3*/
+/*------Styling Body Properties-------*/
+/*-----------Semantic Tags------------*/
+
+/*setting the color to black, changing margins, text align and text transform --> I am going to call changing small things like this typical stylings in the comments from here since it happens often and the reasons for it are simple, either to fit in the text properly or just pure aesthetics*/
+h1{
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*typical stylings*/
+h2{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+/*typical stylings*/
+main p{
+    font-size: 22px;
+    margin: 70px 50px;
+    line-height: 2;   
+}
+/*removing underline*/
+main p a{
+    
+    color: #1c8fad;
+    text-decoration: none;
+}
+/*adding underline only when you hover*/
+main p a:hover {
+    text-decoration: underline;
+}
+
+/*------END OF GLOBAL STYLES----------*/
+
+
+
+/*=========
+2. DESKTOP 
+===========*/
+@media screen and (min-width: 993px){ 
+    /* media queries for screen width of minimum 993px and above such as desktops*/
+    /*2.1*/
+    /*======================
+    ========================
+    Navigation Bar  DESKTOPS 
+    ========================
+    ========================*/
+    /* For the navigation bar code, I was inspired by Kevin Powell's code on CodePen 
+    http://codepen.io/kevinpowell/pen/GrLKNo. after fully grasping what he did.
+    I have changed multiple things in the code, such as, changing the position of the nav bar animation, adding a:hover effects, using my fonts and colors, changing the height of the animation bar and etc. I have also added a hamburger menu for smaller size screens*/    
+      
+    
+    /* styling the division class .navbar that includes logo and navigation links */
+    .navbar{     
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* Hiding the hamburger menu for laptop size and larger screens */
+    .bars{
+        display:none;
+    }
+
+    /* Setting Header background to a color*/
+    header{
+        background-color: #CA8E3F ;
+    }
+    /* I have to use this because when i used float to put the logo on the left and the navigation links on the right, the float shrinks the header's background. So I had to use a after pseudoeffect to bring back the header*/
+    header::after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+
+    /* Setting logo's size and place to be */
+    .logo{
+
+        width: 20%;
+        float: left;    
+    }
+    
+    /* Setting the position of the navigation links to right*/
+    nav{
+        float: right;
+    }
+    /* Setting the margin and padding and remove the list bullet points*/
+    nav ul{
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    /* Setting the dispaly of navigation links to inline block and adding some margin from the left between the links and top padding to 8%. Setting the position to relative so that it is relative to the animation */
+    nav li {
+
+        display: inline-block; 
+
+        margin-left: 60px;
+        padding-top: 8%;
+        position: relative; 
+    }
+
+
+    /* Setting the color of navigation links, removing any underlines, transoforming the text to upper case and setting the font size to 110%. */
+    nav a{
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size:110%;     
+    }
+
+    /* Setting an animation effect so that when you hover over the links the text colors change */
+    nav a:hover{
+        color:#412722;
+
+    }
+
+
+    /* Here, I am creating the animation here using the pseudo element before. Setting the content of the navigation anchors to nothing but giving it a background of white color and setting the height of the display block to 2px. Then, I set the position to absolute so that it is absoloute compare to the links and moves with the links. After that, setting the bottom to -20px to change the position of the animation and giving a width of a zero percent right now so that it doesn't show right now. Finally, setting the transition and the time it takes for it to happen*/
+    nav a::before{
+
+        content:'';
+        display: block;
+        height: 2px;
+        background-color: white;
+
+        position:absolute;
+        bottom: -20px;
+        width:0%;
+
+        transition: all ease-in-out 200ms;
+    }
+
+    /*Now setting the width of nav a by using the pseudo elements hover and before to 100% so that as soon as the cursor moves over the links the animations shows*/
+    nav a:hover::before{
+        width: 100%;
+    }
+    /*Now setting the width of nav a by using the pseudo elements hover and after to 100% so that as soon as the cursor moves over the links the animations shows*/
+    nav a:hover::after{
+
+        width: 100%;
+    }
+/*---------------END OF NAVIGATION BAR STYLES---------------*/
+    
+    /*2.2*/
+    
+     /* For breadcrumb navigation i was inspired by w3school's simple article on it which I tried to implement after fully understanding it. I fully changed the code to implement in the website for example, I changed the typical styles, such as margins, padding, background, font-size, display, etc. I also changed the symbols between the navigations links. The code is very simple, I really didn't have to look for it online, but I have to say I was inspired by that.*/
+    /*https://www.w3schools.com/howto/howto_css_breadcrumbs.asp*/
+  
+    /*===========================
+    Breadcrumb Navigation DESKTOP
+    =============================*/
+
+    /* removing the bullet points and other typical styles  */ 
+    ul.breadcrumb-nav {
+        padding: 5px 80px;
+        margin: auto;
+        list-style: none;
+        background-color: #eee;
+    }
+    
+     /* changing the color and font size and display*/   
+    ul.breadcrumb-nav li {
+        color: #CA8E3F;
+        display: inline-block;
+        font-size: 18px;
+
+    }
+    
+    /*  Adding a ⪼ in in between the two li tags using :before pseudoelement to add cosmetics before the selected tag and "+" to select the adjecent sibiling li to the first li */    
+    ul.breadcrumb-nav li+li:before {
+        padding: 8px;
+        color: #000;
+        content: "⪼";
+     }
+    
+     /*removing underline*/   
+    ul.breadcrumb-nav li a {
+        color: #35201C;
+        text-decoration: none;
+    }
+    
+
+    /*adding underline only when you hover over the links*/    
+    ul.breadcrumb-nav li a:hover {
+
+        color: #1c8fad;
+        text-decoration: underline;
+    }
+/*---------End of Breadcrumb navigation----------*/   
+    /*2.3*/
+    /*===============
+    =================
+    Home Page DESKTOP
+    =================
+    =================*/
+
+    /*-----Styling all home content----*/
+    .all-home{
+        /*Setting the display to flex and row so that they are in a row arrangement*/
+        display:flex;
+        flex-direction:row;
+
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+    /*--Styling the .first-column that includes the home news box as well become a member box--*/
+    .first-column{
+        /* Setting display to flex and column so that they are on top of each other*/
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*----News Box in the Home Page---*/
+    .home-news{
+         /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 10px 50px;
+    }
+
+    /* News title in the homepage */
+    .home-news-title {
+
+        /* aligning text to the center*/
+        text-align: center; 
+        /* Setting font size to 13px */
+        font-size: 13px;
+        /*Transforming the text to all upper case*/
+        text-transform: uppercase;
+        /* Giving a letter spacing of 1px between each letter of the title's text*/
+        letter-spacing: 1px;
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .home-news as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling links in the news title*/
+    .home-news-title a{
+        text-decoration: none;
+        color: #35201C;
+    }
+
+    /* Styling the home news title box as a whole so that when you hover over it the opacity changes*/
+    .home-news-title:hover{
+        opacity: 0.7;
+    }
+
+    /*Styling home news box */
+    .home-news-box{
+
+        /*typical styling*/
+        background: #efdecd;
+        padding: 20px;
+        width :91%;
+
+        /*Giving it a margi top 55px so that it is on the bottom of news title*/
+        margin-top:55px;
+        margin-bottom: 0px;
+
+
+        /*Setting the position to relative so that the home news is absolute to it moves with it and are stacked*/
+        position: relative;
+
+
+    }
+
+
+    /*styling paragraph h3 tags in home news box */
+    .home-news-box h3{
+
+        /*typical styling*/
+        font-size: 18px;
+        text-align: left;
+        margin: 10px 10px;
+        color:#000;
+    }
+
+    /* Styling links in home news box*/
+    .home-news-box a {
+        /*removing underline*/
+        text-decoration: none;
+        color:#35201C
+    }
+
+    /*Styling how links look when you hover over them in home news box*/
+    .home-news-box a:hover{
+        /*adding underline only when you hover over it*/
+        text-decoration: underline;
+        color:#1c8fad;
+    }
+
+    /*Styling home news articles content*/
+    .home-news-article{
+        text-align: left;
+        /*only change the top and bottom padding to leave some space*/
+        padding: 5px 0px;
+        /*no margins*/
+        margin: 0px 0px;
+    }
+
+    /*---Join member banner in Home Page-----*/
+
+    /* Styling join member box as a whole*/
+    .join-member{
+        /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 0px 50px;
+    }
+
+    /*Styling join title*/
+    .join-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+    }
+
+    /* Styling the photo banner*/
+    .join-photo {
+
+        /* Setting margin top and bottom to 55px so that the title box and photo box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+
+        margin-top: 55px;
+        margin-bottom: 0px;
+
+        /*Setting the position to relative so that the join title is absolute to it moves with it and are stacked*/
+        position:relative;
+    }
+
+    /* styling the image only*/
+    .join-photo img{
+
+        /*setting the width and height of the image so that it's not taking over the whole page*/
+        width:96%;
+        height:150px;
+
+        /*setting the photo to cover so that it zoomes in/out depending on the screen size */
+        object-fit: cover;
+    }
+
+    /*Styling the image for when you hover over it*/
+    .join-photo a:hover{
+        opacity: 0.9;
+    }
+
+
+    /*------Calendar-----*/
+
+    /* For the Mock calendar in the home page I was inspired by the mock calendar that user @jamiemggs had posted on codepen, https://codepen.io/jamiemggs/pen/xdvaJv, so I have used some of their code after I fully understood it but changed many things to match it to my website for example, used fewer classes, removed border radius, matched the background colors, changed how to the dates with an agenda look, I also implemented the calendar inside the page using flexbox and etc etc. */
+
+    /*setting the calendar box including the Event title to flexbox column so that they are on top of each other */
+    .calendar{
+
+        /* Using flexbox column because I want the .cal-tile and .cal-box to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 10px 50px;
+    }
+
+    /* Setting the font stylings of the calendar title*/
+    .cal-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "EVENTS" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the calendar is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling the Calendar box*/
+    .cal-box {     
+
+
+        /*Setting the width of the boxto 315px */
+        width:315px;
+        /*Prevents scroll bars from showing up */
+        overflow:hidden; 
+        /* Setting display to flex column*/
+        display:flex;
+        flex-direction: column;
+        /* Setting margin top and bottom to 55px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:55px 0px; 
+        /*Setting background color for all of the calendar box*/
+        background:#efdecd; 
+        /* setting padding */
+        padding:10px;  
+        /* setting thep ositionf og the caledar box to be relative to the calendar title*/
+        position: relative; 
+
+    }
+
+    /*Styling the month title inside the .cal-box*/
+    .cal-month {
+
+        /*typical font styling*/
+        font-size: 18px;
+        font-weight:900; 
+        text-transform:uppercase; 
+        text-align:center; 
+        letter-spacing:2px;
+        color:#35201C;
+
+        /* Setting displat to block so it takes one line*/
+        display:block; 
+
+        /*Giving it no margins, so that it's tightly close to the cal-box borders*/
+        margin: 0px 0px; 
+
+        /*Givign it padding of 10px in each direction just so it has more space and room to breathe*/
+        padding: 10px;
+    }
+    /*setting the margin of the days to auto so it centers itself*/
+    .cal-days{
+        margin: auto;
+    }
+    
+    /*Setting display to flex, row so that the content of each div is in a row and wrap so thst each are on a new line*/
+    .cal-rows{
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap; 
+    }
+
+    /*Styling any tag span inside the .cal-box*/
+    .cal-box  span {
+
+
+        /*typical font styling*/
+        font:15px 'montserrat'; 
+        font-weight:400; 
+        color:#35201C;
+        text-align:center;
+        line-height:50px;
+
+        /*Giving each span tag or basically each date inside the calendar width and height of 42 */
+        width:42px; 
+        height:42px; 
+
+        /*Setting display to inline-block so that they don't move to a new line each time*/
+        display:inline-block; 
+        /*Set them to float left*/
+        float:left; 
+        /*Had to give them a bit of margin on the left to make it centered in side the .cal-box*/
+        margin-left:2.5px;
+
+        /*Setting overflow to hidden so that if there's too many items and it has to scroll it doesn't show it*/
+        overflow:hidden; 
+
+
+    }
+
+    /*It set's the empty parts of the calendar to "O" and changes the opacity of it so that they are not too pronounced*/
+    .cal-box .empty:before {
+        opacity:0.3; 
+        content:'O';
+    }
+
+    /* It highlights the days that the club meetings are on*/
+    .highlight {   
+        background: #E3BD8C
+    }
+
+    /* It styles all the span tags with the attribute [data-title]. It uses hover:after to show a little box with the event descriptions as you hover over them*/
+    span[data-title]:hover:after {
+        /*setting typical font styles*/
+        font:12px 'montserrat'; 
+        font-weight:400; 
+        color:#f7f3eb; 
+
+        /*telling it the content is what is inside the attribute data-title in the html file*/
+        content:attr(data-title); 
+
+        /*setting the positin to absolute so that it doesn't change location each time, it is absolute to the dates */
+        position:absolute; 
+
+        /*Setting typical margin, background, padding*/
+        margin:0 0 100px; 
+        border:1px solid #f7f3eb;
+        padding:10px; 
+        background:#1c8fad;
+
+        /*setting a min width and maxwidth*/
+        min-width:100px; 
+        max-width:150px;     
+ }
+    
+/*---------------------END OF HOME PAGE STYLES----------------*/
+    /*2.4*/
+    /*===============
+    Join Page DESKTOP
+    =================*/
+
+    /*Setting the display of the join form to be grid, four row that their sizes automatically and other typical stylings*/
+    form{
+        display: grid;
+        grid-template-rows: auto auto auto auto; 
+        text-align: center;
+        background: #E3BD8C;
+        margin:  20px 0px;
+        padding: 0px;
+    } 
+    /*just margin*/
+    
+    .email, .buttons{
+        margin: 30px;
+    }
+
+    /*Setting the display of first name and last name input and label to grid columns in the auto columns */
+    .name{
+        display:grid;
+        grid-template-columns: 150px 300px 30px 300px 150px;
+        margin: 30px auto;
+
+    }
+    
+    /*setting grid columns using the line numbers*/
+    .fname{
+        grid-column: 2/3;
+    }
+    /*setting grid columns using the line numbers*/
+    .lname{
+        grid-column: 4/5;
+    }
+    
+    /*specifically the input for email address*/
+    #mail{
+        width:300px;
+    }
+    
+    /*typical styles*/
+    input, label, button{
+        /*making sure it uses the same font as th website inside the inputes, labels and button's texts*/
+        font-family: inherit;
+        font-size: 20px;
+    }
+    /*typical styles*/
+    .buttons{
+        /*centering the text*/
+        text-align: center;
+    }
+    
+     /*Changing the cursor so that the user knows #submit, #checkbox and even #checkbox-label are clickable as they hover over them*/
+    #submit:hover, #checkbox:hover, #checkbox-label:hover{
+        cursor: pointer;
+       
+    }
+    /*Changing padding and sizing*/
+    #submit{
+        padding: 10px;
+        transform: scale(1);
+    }
+    /*Changing the size of the checkbox*/
+    #checkbox{
+        transform: scale(1.5);
+    }
+    
+/*----------------------END OF JOIN PAGE STYLES---------------*/
+    /*2.5*/
+    /*=======================
+    News Page Styling DESKTOP
+    ========================*/
+
+    /*Setting display to flex row, so that they are always next to each other*/
+    .all-news{
+        display:flex;
+        flex-direction: row;    
+    }
+
+    /*setting margins*/
+    .articles{
+        margin: 50px 20px;
+    }
+
+
+    /*Setting display to flex column so that they are always on top of each other*/
+    .news-article{ 
+        display: flex;
+        flex-direction: column;  
+    }
+
+    /*removing underline and setting the color*/
+    .news-article article a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    /*adding underline only when you hover over the links and changing the color */
+    .news-article article a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+
+    /*setting image properties to auto so it easily adjusts+*/
+    .news-article img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width:auto;
+    }
+    /*tpyical styling*/
+    .news-article h2{
+        text-align: center;
+        margin: 40px 0px;
+    }
+    /*tpyical styling*/
+    .news-article article p{
+        font-size: 17px;
+    }
+
+    /*Typical styling, changing the width as well */
+    .archive-articles{
+        width:600px;
+        text-align: center;
+        margin: 70px 30px;
+
+    }
+    
+
+    /*removing bullet points*/
+    .archive-articles ul{
+        list-style: none;
+    }  
+    
+    /*setting some margin on the left side*/
+    .archive-articles h2{
+        margin-left: 40px;
+    }
+    
+    /*removing underlines and setting color*/
+    .archive-articles a{
+        text-decoration: none; 
+        color: #CA8E3F;
+
+    }
+    /*Adding underline only when you hover to it and changing the color */
+    .archive-articles a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;   
+    }
+
+    /*setting the display to none so it doesn't show up for large screens*/
+    #archive-button-down{
+        display: none;
+    } 
+    
+    /*setting the display to none so it doesn't show up for large screens*/
+    #archive-button-up{
+        display: none;
+    }
+    
+    /*typical styling*/
+    .page-num{
+        font-size: 22px;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+    /*removing underline and setting the color*/
+    .page-num a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    /*adding underline only when you hover over the links and changing the color */
+    .page-num a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+/*----------END OF NEWS PAGE STYLES--------*/
+
+    /*2.6*/
+    /*=======================
+    Beginner Lessons  DESKTOP
+    =========================*/
+    /*setting the display to flex column so that resizng would be very easy*/
+    .lessons{  
+        display: flex;
+        flex-direction: column;
+        margin: 20px 100px;
+    }
+    /*typical styling*/
+    .lessons p{
+        margin: 20px 50px;
+        font-size: 20px;
+    }
+
+    /*removing underlines*/
+    .lessons a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+    /*Bringing back the underlie and cursor pointer and cahange of color as you hover over the links*/
+    .lessons a:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        color:#1c8fad;
+    }
+
+    /*centering the images*/
+    .lessons img{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*centering the youtube video*/
+    .lessons iframe{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*styling the list*/
+    .lessons li{
+        font-size: 20px;
+        line-height: 2;
+        margin: 0px 50px;
+    }
+    /*setting display to block, and typical styles*/
+    .lesson-1{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-1-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-1-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-2{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-2-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-2-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-3{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-3-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-3-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+
+    /*setting display to block, and typical styles*/
+    .lesson-4{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-4-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-4-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-5{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-5-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-5-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-6{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-6-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-6-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+/*----------------END OF BEGINNER LESSONS------------------*/
+    
+    /*2.7*/
+    /*=======
+    About Us
+    =======*/
+
+    /*setting the display to flex and flex direction to column and giving it a bottom margin*/
+    .all-about{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /*removing underline and giving it a color*/
+    .all-about a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+
+    /*as you hover over the links changes the color*/
+    .all-about a:hover{
+        cursor: pointer;
+        text-decoration: none;
+        color:#1c8fad;
+    }
+
+    /*display flex column for the two classes inside this class*/
+    .leadership{
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+
+    /*giving photos a width and a height and border radius so they look circular*/
+    .leadership img{
+        width:100px;
+        height:100px;
+        object-fit: cover;
+        border-radius: 100%;
+        padding:30px;
+
+    }
+    /*removing bullet points and adding distance between lines*/
+    .leadership ul{
+        list-style: none;
+        font-size: 20px;
+        line-height: 2;
+    }
+
+    /*setting the two leadership roles in this class to be in row*/
+    .image-row-1{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+
+    /*setting the two leadership roles in this class to be in row*/
+    .image-row-2{
+        display: flex;
+        flex-direction: row;
+    }
+    /*inside each leadership role, they are in row as well, adding some shadow and radius for aesthetics*/
+
+    .image{
+        display: flex;
+        flex-direction: row;
+        /* 10px in the right and 10px down and 20 px blur*/
+        box-shadow: 10px 10px 20px  #E3BD8C;
+        margin:10px 30px;
+        padding: 40px;
+        border-radius: 50px;
+
+    }
+
+    /*Animation as you hover over each leadership role*/
+    /*changes the size just a bit and it transitions back in 250ms*/
+    .image:hover{
+        transform: scale(1.05);
+        transition: 250ms ease-in-out;
+    }
+
+/*---------End of Styling About us page------------*/
+
+    /*2.8*/
+    /*====================
+    Footer Styling DESKTOP    
+    ======================*/
+
+    /* footer display and background settings*/
+    footer{
+        /* Setting the background the same as navbar */
+        background: #CA8E3F;
+        
+        /*setting the display to grid so that the resizing of the footer would be much easier*/
+        display: grid;
+        grid-template-columns:  50px auto auto 50px;
+    }
+
+ 
+    /*----footer nav------*/
+
+    /*Set it to be between grid lines 1 and 3, and other typical styles*/
+    .footer-nav{
+        grid-column: 1/3;
+        padding:30px;
+        font-size: 17px;
+    }
+    /*removed bulletpoint and added a line height*/
+    .footer-nav ul{
+        list-style: none;
+        line-height: 2;
+    }
+
+    /* Removing underline, changing text color for the links */
+    .footer-nav a{
+        color:#35201C;
+        text-decoration: none;    
+    }
+
+    /*Changing the color as you hover over it and adding underline only when you hover over the links*/
+    .footer-nav a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+
+    /*----Social Media Icons in the Footer--*/
+
+    /* To create social media icons, I learned from  w3school page: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp .  After fully understanding what it does, I tried to implement it. What it basically does is: it uses a font aweosme icon library and each element is called in by a specific font awesome class and then you easily style the icons as normals using css. i.e. giving it a backgroubnd etc. I added links and edited the links to have realistic accounts */
+
+    /*Set it to be between grid lines 3 and 5, and other typical styles*/
+    .socialmedia{
+        padding:30px;
+        grid-column: 3/5;
+        text-align: left;
+
+    }
+    /* Edits only the contact us email link, removes the underline and matches the color to the rest of the text links*/
+    h4 a{
+        text-decoration: none;
+        color: #35201C;
+    }
+
+    /*Changing the color as you hover over it and adding underline only when you hover over the links*/
+    h4 a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+
+    /* typical styling of font awesome class as a whole, this effects all of the social media icons */
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+
+        /*making it look like a circle*/
+        border-radius: 90%;
+    }
+
+    /*Changing the opacity of the icons only when you hover over the links*/
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    /*Giving it the blue color of facebook and setting the symbol color to white, since it acts as a text */
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+
+    /*Giving it the gradient color of instagram and setting the symbol color to white, since it acts as a text */
+    /* To find the gradient color od instagram i used this website which was very helpful: http://www.brandgradients.com/instagram-colors/ */
+    .fa-instagram {
+        background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        color: white;
+    }
+
+    /*Giving it the purple color of twitch and setting the symbol color to white, since it acts as a text */
+    .fa-twitch {
+        background: #6441a5;
+        color: white;
+    }
+
+/*-------------END OF FOOTER STYLES-------------*/
+}
+
+
+
+/*========
+3. LAPTOP 
+=========*/
+@media screen and (min-width:769px) and (max-width:992px){
+
+    /*Media queries for screen with minimum width of 769 and max width of 992 such as some tablets*/
+    /*3.1*/
+    /*=====================
+    =======================
+    Navigation Bar LAPTOPS 
+    =======================
+    =======================*/
+    /* For the navigation bar code, I was inspired by Kevin Powell's code on CodePen 
+    http://codepen.io/kevinpowell/pen/GrLKNo. after fully grasping what he did.
+    I have changed multiple things in the code, such as, changing the position of the nav bar, adding a:hover effects, using my fonts and colors, changing the height of the animation bar and etc. I have also added a hamburger menu for smaller size screens*/    
+    
+    /* styling the division class .navbar that includes logo and navigation links */
+    .navbar{     
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    /* Hiding the hamburger menu for laptop size and larger screens */
+    .bars{
+        display:none;
+    }
+
+    /* Setting Header background to a color*/
+    header{
+        background-color: #CA8E3F ;
+    }
+    /* I have to use this because when i used float to put the logo on the left and the navigation links on the right, the float shrinks the header's background. So I had to use a after pseudoeffect to bring back the header*/
+    header::after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+
+    /* Setting logo's size and place to be */
+    .logo{
+
+        width: 20%;
+        float: left;    
+    }
+    
+    /* Setting the position of the navigation links to right*/
+    nav{
+        float: right;
+    }
+    /* Setting the margin and padding and remove the list bullet points*/
+    nav ul{
+
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    /* Setting the dispaly of navigation links to inline block and adding some margin from the left between the links and top padding to 8%. Setting the position to relative so that it is relative to the animation */
+    nav li {
+
+        display: inline-block; 
+
+        margin-left: 50px;
+        padding-top: 8%;
+        position: relative; 
+    }
+
+
+    /* Setting the color of navigation links, removing any underlines, transoforming the text to upper case and setting the font size to 84%. */
+    nav a{
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size:84%;     
+    }
+
+    /* Setting an animation effect so that when you hover over the links the text colors change */
+    nav a:hover{
+        color:#412722;
+
+    }
+
+
+    /* Here, I am creating the animation here using the pseudo element before. Setting the content of the navigation anchors to nothing but giving it a background of white color and setting the height of the display block to 2px. Then, I set the position to absolute so that it is absoloute compare to the links and moves with the links. After that, setting the bottom to -20px to change the position of the animation and giving a width of a zero percent right now so that it doesn't show right now. Finally, setting the transition and the time it takes for it to happen*/
+    nav a::before{
+
+        content:'';
+        display: block;
+        height: 2px;
+        background-color: white;
+
+        position:absolute;
+        bottom: -20px;
+        width:0%;
+
+        transition: all ease-in-out 200ms;
+    }
+
+    /*Now setting the width of nav a by using the pseudo elements hover and before to 100% so that as soon as the cursor moves over the links the animations shows*/
+    nav a:hover::before{
+        width: 100%;
+    }
+    /*Now setting the width of nav a by using the pseudo elements hover and after to 100% so that as soon as the cursor moves over the links the animations shows*/
+    nav a:hover::after{
+        width: 100%;
+    }
+/*----------END OF NAVIGATION BAR STYLINGS----------*/
+    
+    /*3.2*/
+    /* For breadcrumb navigation i was inspired by w3school's simple article on it which I tried to implement after fully understanding it. I fully changed the code to implement in the website for example, I changed the typical styles, such as margins, padding, background, font-size, display, etc. I also changed the symbols between the navigations links. The code is very simple, I really didn't have to look for it online, but I have to say I was inspired by that.*/
+
+    /*===========================
+    Breadcrumb Navigation LAPTOP
+    =============================*/
+    /* removing the bullet points and other typical styles  */
+    ul.breadcrumb-nav {
+        padding: 5px 80px;
+        margin: auto;
+        list-style: none;
+        background-color: #eee;
+    }
+    
+    /* changing the color and font size and display */ 
+    ul.breadcrumb-nav li {
+        color: #CA8E3F;
+        display: inline-block;
+        font-size: 18px;
+
+    }
+    
+    /*  Adding a ⪼ in in between the two li tags using :before pseudoelement to add cosmetics before the selected tag and "+" to select the adjecent sibiling li to the first li */       
+    ul.breadcrumb-nav li+li:before {
+        padding: 8px;
+        color: #000;
+        content: "⪼";
+     }
+    
+    /*removing underline*/
+    ul.breadcrumb-nav li a {
+        color: #35201C;
+        text-decoration: none;
+    }
+    
+    /*adding underline only when you hover over the links*/
+    ul.breadcrumb-nav li a:hover {
+
+        color: #1c8fad;
+        text-decoration: underline;
+    }
+/*---------End of Breadcrumb navigation----------*/ 
+    
+    /*3.3*/
+    /*==============
+    ================
+    Home Page LAPTOP
+    ================
+    ================*/
+
+    /*-----Styling all home content----*/
+    .all-home{
+        /*Setting the display to flex and row so that they are in a row arrangement*/
+        display:flex;
+        flex-direction:row;
+
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+    /*--Styling the .first-column that includes the home news box as well become a member box--*/
+    .first-column{
+        /* Setting display to flex and column so that they are on top of each other*/
+        display: flex;
+        flex-direction: column;
+    }
+
+    /*----News Box in the Home Page---*/
+    .home-news{
+         /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 10px 50px;
+    }
+
+    /* News title in the homepage */
+    .home-news-title {
+
+        /* aligning text to the center*/
+        text-align: center; 
+        /* Setting font size to 13px */
+        font-size: 13px;
+        /*Transforming the text to all upper case*/
+        text-transform: uppercase;
+        /* Giving a letter spacing of 1px between each letter of the title's text*/
+        letter-spacing: 1px;
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .home-news as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling links in the news title*/
+    .home-news-title a{
+        text-decoration: none;
+        color: #35201C;
+    }
+
+    /* Styling the home news title box as a whole so that when you hover over it the opacity changes*/
+    .home-news-title:hover{
+        opacity: 0.7;
+    }
+
+    /*Styling home news box */
+    .home-news-box{
+
+        /*typical styling*/
+        background: #efdecd;
+        padding: 20px;
+        width :91%;
+
+        /*Giving it a margi top 55px so that it is on the bottom of news title*/
+        margin-top:55px;
+        margin-bottom: 0px;
+
+
+        /*Setting the position to relative so that the home news is absolute to it moves with it and are stacked*/
+        position: relative;
+
+
+    }
+
+
+    /*styling paragraph h3 tags in home news box */
+    .home-news-box h3{
+
+        /*typical styling*/
+        font-size: 18px;
+        text-align: left;
+        margin: 10px 10px;
+        color:#000;
+    }
+
+    /* Styling links in home news box*/
+    .home-news-box a {
+        /*removing underline*/
+        text-decoration: none;
+        color:#35201C
+    }
+
+    /*Styling how links look when you hover over them in home news box*/
+    .home-news-box a:hover{
+        /*adding underline only when you hover over it*/
+        text-decoration: underline;
+        color:#1c8fad;
+    }
+
+    /*Styling home news articles content*/
+    .home-news-article{
+        text-align: left;
+        /*only change the top and bottom padding to leave some space*/
+        padding: 5px 0px;
+        /*no margins*/
+        margin: 0px 0px;
+    }
+
+    /*---Join member banner in Home Page-----*/
+
+    /* Styling join member box as a whole*/
+    .join-member{
+        /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 0px 50px;
+    }
+
+    /*Styling join title*/
+    .join-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+    }
+
+    /* Styling the photo banner*/
+    .join-photo {
+
+        /* Setting margin top and bottom to 55px so that the title box and photo box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+
+        margin-top: 55px;
+        margin-bottom: 0px;
+
+        /*Setting the position to relative so that the join title is absolute to it moves with it and are stacked*/
+        position:relative;
+    }
+
+    /* styling the image only*/
+    .join-photo img{
+
+        /*setting the width and height of the image so that it's not taking over the whole page*/
+        width:96%;
+        height:150px;
+
+        /*setting the photo to cover so that it zoomes in/out depending on the screen size */
+        object-fit: cover;
+    }
+
+    /*Styling the image for when you hover over it*/
+    .join-photo a:hover{
+        opacity: 0.9;
+    }
+
+
+    /*------Calendar-----*/
+
+    /* For the Mock calendar in the home page I was inspired by the mock calendar that user @jamiemggs had posted on codepen, https://codepen.io/jamiemggs/pen/xdvaJv, so I have used some of their code after I fully understood it but changed many things to match it to my website for example, used fewer classes, removed border radius, matched the background colors, changed how to the dates with an agenda look, I also implemented the calendar inside the page using flexbox and etc etc. */
+
+    /*setting the calendar box including the Event title to flexbox column so that they are on top of each other */
+    .calendar{
+
+        /* Using flexbox column because I want the .cal-tile and .cal-box to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 10px 50px;
+    }
+
+    /* Setting the font stylings of the calendar title*/
+    .cal-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "EVENTS" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the calendar is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling the Calendar box*/
+    .cal-box {     
+
+
+        /*Setting the width of the boxto 315px */
+        width:315px;
+        /*Prevents scroll bars from showing up */
+        overflow:hidden; 
+        /* Setting display to flex column so that the month and days are on top of each other*/
+        display:flex; 
+        flex-direction: column;
+        /* Setting margin top and bottom to 55px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:55px 0px; 
+        /*Setting background color for all of the calendar box*/
+        background:#efdecd; 
+        /* setting padding */
+        padding:10px;  
+        /* setting thep ositionf og the caledar box to be relative to the calendar title*/
+        position: relative; 
+
+    }
+
+    /*Styling the month title inside the .cal-box*/
+    .cal-month {
+
+        /*typical font styling*/
+        font-size: 18px;
+        font-weight:900; 
+        text-transform:uppercase; 
+        text-align:center; 
+        letter-spacing:2px;
+        color:#35201C;
+
+        /* Setting displat to block so it takes one line*/
+        display:block; 
+
+        /*Giving it no margins, so that it's tightly close to the cal-box borders*/
+        margin: 0px 0px; 
+
+        /*Givign it padding of 10px in each direction just so it has more space and room to breathe*/
+        padding: 10px;
+    }
+    /*setting the margin of the days to auto so it centers itself*/
+    .cal-days{
+        margin: auto;
+    }
+   /*Setting display to flex, row so that the content of each div is in a row and wrap so thst each are on a new line*/
+    .cal-rows{
+        display: flex;
+        flex-direction: row;
+        flex-wrap:wrap; 
+    }
+    /*Styling any tag span inside the .cal-box*/
+    .cal-box  span {
+
+
+        /*typical font styling*/
+        font-size:18px; 
+        font-weight:400; 
+        color:#35201C;
+        text-align:center;
+        line-height:50px;
+
+        /*Giving each span tag or basically each date inside the calendar width and height of 42 */
+        width:42px; 
+        height:42px; 
+
+        /*Setting display to inline-block so that they don't move to a new line each time*/
+        display:inline-block; 
+        /*Set them to float left*/
+        float:left; 
+        margin:1px;
+        /*Setting overflow to hidden so that if there's too many items and it has to scroll it doesn't show it*/
+        overflow:hidden; 
+
+
+    }
+
+    /*It set's the empty parts of the calendar to "O" and changes the opacity of it so that they are not too pronounced*/
+    .cal-box .empty:before {
+        opacity:0.3; 
+        content:'O';
+    }
+
+    /* It highlights the days that the club meetings are on*/
+    .highlight {   
+        background: #E3BD8C
+    }
+
+    /* It styles all the span tags with the attribute [data-title]. It uses hover:after to show a little box with the event descriptions as you hover over them*/
+    span[data-title]:hover:after {
+        /*setting typical font styles*/
+        font:12px 'montserrat'; 
+        font-weight:400; 
+        color:#f7f3eb; 
+
+        /*telling it the content is what is inside the attribute data-title in the html file*/
+        content:attr(data-title); 
+
+        /*setting the positin to absolute so that it doesn't change location each time, it is absolute to the dates */
+        position:absolute; 
+
+        /*Setting typical margin, background, padding*/
+        margin:0 0 100px; 
+        border:1px solid #f7f3eb;
+        padding:10px; 
+        background:#1c8fad;
+
+        /*setting a min width and maxwidth*/
+        min-width:100px; 
+        max-width:150px;     
+    }
+    
+/*---------END OF HOME PAGE STYLES----------*/
+    /*3.4*/
+    /*===============
+    Join Page LAPTOP
+    =================*/
+
+    /*Setting the display of the join form to be grid, four row that their sizes automatically and other typical stylings*/
+    form{
+
+        display: grid;
+        grid-template-rows: auto auto auto auto; 
+        text-align: center;
+        background: #E3BD8C;
+        margin:  20px 0px;
+        padding: 0px;
+    } 
+
+    /*just margin*/
+     .lname, .fname, .email, .buttons{
+        margin: 20px;   
+    }
+    
+      /*Setting the display of first name and last name input and label to grid two rows as well since each div has two rows*/   
+    .name{
+        display:grid;
+        grid-template-rows: auto auto; 
+
+    }
+    /*specifically the input for email address*/
+    #mail{
+
+        width:200px;
+
+    }
+    /*typical styles*/
+    input, label, button{
+        font-family: inherit;
+        font-size: 18px;
+    }
+    /*typical styles*/
+    .buttons{
+        text-align: center;
+    }
+    /*Changing the cursor so that the user knows #submit, #checkbox and even #checkbox-label are clickable as they hover over them*/
+    #submit:hover, #checkbox:hover, #checkbox-label:hover{
+        cursor: pointer;
+    }
+    /*Changing padding and sizing*/
+    #submit{
+        padding: 10px;
+        transform: scale(1);
+
+    }
+    /*Changing the size of the checkbox*/
+    #checkbox{
+        transform: scale(1.5);
+    }
+ /*----------------------END OF JOIN PAGE STYLES---------------*/
+    /*3.5*/
+    /*=======================
+    News Page Styling LAPTOP
+    ========================*/
+
+    /*Setting display to flex row, so that they are always next to each other*/
+    .all-news{
+        display:flex;
+        flex-direction: row;    
+    }
+
+    /*setting margins*/
+    .articles{
+        margin: 50px 20px;
+        margin-right: 0px;
+    }
+
+
+    /*Setting display to flex column so that they are always on top of each other*/
+    .news-article{ 
+        display: flex;
+        flex-direction: column;  
+    }
+
+    /*removing underline and setting the color*/
+    .news-article article a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    
+    /*adding underline only when you hover over the links and changing the color */
+    .news-article article a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+
+    /*setting image properties to auto so it easily adjusts+*/
+    .news-article img {
+        display: block;
+        margin-left: auto;
+       margin-right: auto;
+    }
+    /*tpyical styling*/
+    .news-article h2{
+        text-align: center;
+        margin: 40px 0px;
+    }
+    /*tpyical styling*/
+    .news-article article p{
+        font-size: 17px;
+    }
+
+    /*Typical styling, changing the width as well */
+    .archive-articles{
+        width:600px;
+        text-align: center;
+        margin: 70px 20px;   
+    
+    }
+    /*setting some margin on the left*/
+    .archive-articles h2{
+        margin-left: 40px;
+    }
+
+    /*removing bullet points*/
+    .archive-articles ul{
+        list-style: none;       
+    }
+    /*removing underlines and setting color*/
+    .archive-articles a{
+        text-decoration: none; 
+        color: #CA8E3F;
+
+    }
+    /*Adding underline only when you hover to it and changing the color */
+    .archive-articles a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;   
+    }
+
+    
+    /*setting the display to none so it doesn't show up for large screens*/
+    #archive-button-down{
+        display: none;
+    } 
+    
+    /*setting the display to none so it doesn't show up for large screens*/
+    #archive-button-up{
+        display: none;
+    } 
+    /*tpyical styling*/
+    .page-num{
+        font-size: 22px;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+    /*removing underline and setting the color*/
+    .page-num a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    /*adding underline only when you hover over the links and changing the color */
+    .page-num a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+/*----------END OF NEWS PAGE STYLES--------*/
+    
+    /*3.6*/   
+    /*=====================
+    Beginner Lessons LAPTOP
+    =======================*/
+    /*setting the display to flex column so that resizng would be very easy*/
+    .lessons{  
+        display: flex;
+        flex-direction: column;
+        margin: 20px 100px;
+    }
+    /*typical styling*/
+    .lessons p{
+        margin: 20px 50px;
+        font-size: 20px;
+    }
+
+    /*removing underlines*/
+    .lessons a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+    /*Bringing back the underlie and cursor pointer and cahange of color as you hover over the links*/
+    .lessons a:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        color:#1c8fad;
+    }
+
+    /*centering the images*/
+    .lessons img{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*centering the youtube video*/
+    .lessons iframe{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*styling the list*/
+    .lessons li{
+        font-size: 20px;
+        line-height: 2;
+        margin: 0px 50px;
+    }
+    /*setting display to block, and typical styles*/
+    .lesson-1{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-1-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-1-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-2{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-2-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-2-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-3{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-3-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-3-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+
+    /*setting display to block, and typical styles*/
+    .lesson-4{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-4-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-4-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-5{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-5-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-5-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-6{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-6-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-6-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+/*----------------END OF BEGINNER LESSONS------------------*/
+    /*3.7*/    
+    /*=============
+    About Us LAPTOP
+    ===============*/
+
+    /*setting the display to flex and flex direction to column and giving it a bottom margin*/
+    .all-about{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /*removing underline and giving it a color*/
+    .all-about a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+
+    /*as you hover over the links changes the color*/
+    .all-about a:hover{
+        cursor: pointer;
+        text-decoration: none;
+        color:#1c8fad;
+    }
+
+    /*display flex column for the two classes inside this class*/
+    .leadership{
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+
+    /*giving photos a width and a height and border radius so they look circular*/
+    .leadership img{
+        width:100px;
+        height:100px;
+        object-fit: cover;
+        border-radius: 100%;
+        padding:30px;
+
+    }
+    /*removing bullet points and adding distance between lines*/
+    .leadership ul{
+        list-style: none;
+        font-size: 20px;
+        line-height: 2;
+    }
+
+    /*setting the two leadership roles in this class to be in row*/
+    .image-row-1{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 50px;
+    }
+
+    /*setting the two leadership roles in this class to be in row*/
+    .image-row-2{
+        display: flex;
+        flex-direction: row;
+    }
+    /*inside each leadership role, they are in row as well, adding some shadow and radius for aesthetics*/
+
+    .image{
+        display: flex;
+        flex-direction: row;
+        /* 10px in the right and 10px down and 20 px blur*/
+        box-shadow: 10px 10px 20px  #E3BD8C;
+        margin:10px 30px;
+        padding: 40px;
+        border-radius: 50px;
+
+    }
+
+    /*Animation as you hover over each leadership role*/
+    /*changes the size just a bit and it transitions back in 250ms*/
+    .image:hover{
+        transform: scale(1.05);
+        transition: 250ms ease-in-out;
+    }
+
+/*---------End of Styling About us page------------*/
+    
+    /*3.8*/
+    /*===================
+    Footer Styling LAPTOP    
+    =====================*/
+
+    /* footer display and background settings*/
+    footer{
+        /* Setting the background the same as navbar */
+        background: #CA8E3F;
+        
+        /*setting the display to grid so that the resizing of the footer would be much easier*/
+        display: grid;
+        grid-template-columns:  50px auto auto 50px;
+    }
+
+ 
+    /*----footer nav------*/
+
+    /*Set it to be between grid lines 1 and 3, and other typical styles*/
+    .footer-nav{
+        grid-column: 1/3;
+        padding:30px;
+        font-size: 17px;
+    }
+    /*removed bulletpoint and added a line height*/
+    .footer-nav ul{
+        list-style: none;
+        line-height: 2;
+    }
+
+    /* Removing underline, changing text color for the links */
+    .footer-nav a{
+        color:#35201C;
+        text-decoration: none;    
+    }
+
+    /*Changing the color as you hover over it and adding underline only when you hover over the links*/
+    .footer-nav a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+
+    /*----Social Media Icons in the Footer--*/
+
+    /* To create social media icons, I learned from  w3school page: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp .  After fully understanding what it does, I tried to implement it. What it basically does is: it uses a font aweosme icon library and each element is called in by a specific font awesome class and then you easily style the icons as normals using css. i.e. giving it a backgroubnd etc. I added links and edited the links to have realistic accounts */
+
+    /*Set it to be between grid lines 3 and 5, and other typical styles*/
+    .socialmedia{
+        padding:30px;
+        grid-column: 3/5;
+        text-align: left;
+
+    }
+    /* Edits only the contact us email link, removes the underline and matches the color to the rest of the text links*/
+    h4 a{
+        text-decoration: none;
+        color: #35201C;
+    }
+
+    /*Changing the color as you hover over it and adding underline only when you hover over the links*/
+    h4 a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+
+    /* typical styling of font awesome class as a whole, this effects all of the social media icons */
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+
+        /*making it look like a circle*/
+        border-radius: 90%;
+    }
+
+    /*Changing the opacity of the icons only when you hover over the links*/
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    /*Giving it the blue color of facebook and setting the symbol color to white, since it acts as a text */
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+
+    /*Giving it the gradient color of instagram and setting the symbol color to white, since it acts as a text */
+    /* To find the gradient color od instagram i used this website which was very helpful: http://www.brandgradients.com/instagram-colors/ */
+    .fa-instagram {
+        background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        color: white;
+    }
+
+    /*Giving it the purple color of twitch and setting the symbol color to white, since it acts as a text */
+    .fa-twitch {
+        background: #6441a5;
+        color: white;
+    }
+
+
+}
+
+
+
+/*========
+4. TABLET 
+==========*/
+@media screen and (min-width:481px) and (max-width:768px){
+    /* Media queries for screen with minimum width of 481px and max width of 768px such as some tablets and phones*/
+    /*4.1*/
+    /*====================
+    Navigation Bar TABLET 
+    ======================*/
+    /*For the hamburger menu I found an online tutorial : https://youtu.be/ydZc17rlR5E by Florin Pop and used some of his code after I fully understood it, it's pretty straight forward actually: you create a button, import the symbol using font awesome, then using @media queries css we, set the properties of the button to hide when the screen is big enough and we don't need a hamburger menu , but when the page is small, we set the navigation link to hide and the hamburger menu to show. Later we manipulate this in javascript using an event listener that checks for a click on the element id bars as soon as bars is clicked, it changes the css property of navigation links to show*/
+     
+    /* Setting the width of navbar to 90% and giving it a margin of zero */
+    .navbar{     
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Setting the header color*/
+    header{
+        background-color: #CA8E3F ;
+    }
+    
+    /* I have to use this because when i used float to put the logo on the left and the navigation links on the right, the float shrinks the header's background. So I had to use a after pseudoeffect to bring back the header*/
+    
+    header::after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+    /*tpyical styling*/
+    .logo{
+        padding: 10px;
+        width:30%;
+        float:left;
+    }
+    
+    /* setting the hamburger menu so that it's transparent and has no borders and the color is set to be white as well. Display set to block, floats right and has a padding of 1em */
+    .bars{
+        background-color:transparent;
+        border: 0;
+        color:white;
+        font-size: 30px;
+        cursor: pointer;
+        display:block;
+        float:right;
+        padding:1em;
+         
+    }
+    
+    
+    
+    /* when clicked, it won't have an outline either */
+    .bars:focus{
+        outline:none;
+    }
+    
+
+    /*giving it a flex wrap so that it would start a new line if needed*/
+    nav{
+        flex-wrap: wrap;
+        text-align: right;
+        padding: 40px;
+        font-size: 20px;
+        line-height: 2;       
+    }
+    
+    /* removing underlines from the navigation links */
+    nav a{
+        
+        text-decoration:none;
+        color:white;
+    }
+    
+    /*changing the color of the links only as you hover over them*/
+    nav a:hover{
+        color:#35201C;
+    }
+    /* removing the bullet points*/
+    nav ul{
+         list-style: none;
+        
+    }
+    
+    /*Setting the navigation display to not show as deafult and using flex to keep it as a column*/
+    #navigation{
+        display: none;
+        width:100%;
+        flex-direction: column;
+    }
+    /*Setting navigation when it shows, or clicked by or told by the JS to show to display as flex*/
+    
+    #navigation.show{
+        display:flex;
+        flex-direction: column;
+        width:100%;
+    }
+    
+
+/*-----------END OF NAVIGATION BAR STYLES----------*/
+    /*4.2*/   
+    
+    /* For breadcrumb navigation i was inspired by w3school's simple article on it which I tried to implement after fully understanding it. I fully changed the code to implement in the website for example, I changed the typical styles, such as margins, padding, background, font-size, display,text-align and etc. I also changed the symbols between the navigations links. The code is very simple, I really didn't have to look for it online, but I have to say I was inspired by that.*/
+    /*==========================
+    Breadcrumb Navigation TABLET
+    ============================*/
+    /* removing the bullet points and other typical styles  */
+    ul.breadcrumb-nav {
+        padding: 5px 80px;
+        margin: auto;
+        list-style: none;
+        background-color: #eee;
+        text-align: center;
+    }
+    
+     /* changing the color and font size and display*/  
+    ul.breadcrumb-nav li {
+        color: #CA8E3F;
+        display: inline;
+        font-size: 18px;
+
+    }
+    
+    /*  Adding a ⪼ in in between the two li tags using :before pseudoelement to add cosmetics before the selected tag and "+" to select the adjecent sibiling li to the first li */ 
+    ul.breadcrumb-nav li+li:before {
+        padding: 8px;
+        color: #000;
+        content: "⪼";
+     }
+    
+    /*removing underline*/
+    ul.breadcrumb-nav li a {
+        color: #35201C;
+        text-decoration: none;
+    }
+    
+    /*adding underline only when you hover over the links*/ 
+    ul.breadcrumb-nav li a:hover {
+
+        color: #1c8fad;
+        text-decoration: underline;
+    }
+/*---------End of Breadcrumb navigation----------*/ 
+    
+    /*4.3*/
+    /*========================
+    ==========================
+    Home Page TABLET & PHONE
+    =========================
+    ========================*/
+    /*-----Styling all home content----*/
+    .all-home{
+        /*Setting the display to flex and row so that they are in a row arrangement*/
+        display:flex;
+        flex-direction:column;
+
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+    /*--Styling the .first-column that includes the home news box as well become a member box--*/
+    /*.first-column{*/
+        /* Setting display to flex and column so that they are on top of each other*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*}*/
+
+    /*----News Box in the Home Page---*/
+    .home-news{
+         /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 10px 50px;
+    }
+
+    /* News title in the homepage */
+    .home-news-title {
+
+        /* aligning text to the center*/
+        text-align: center; 
+        /* Setting font size to 13px */
+        font-size: 13px;
+        /*Transforming the text to all upper case*/
+        text-transform: uppercase;
+        /* Giving a letter spacing of 1px between each letter of the title's text*/
+        letter-spacing: 1px;
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .home-news as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling links in the news title*/
+    .home-news-title a{
+        text-decoration: none;
+        color: #35201C;
+    }
+
+    /* Styling the home news title box as a whole so that when you hover over it the opacity changes*/
+    .home-news-title:hover{
+        opacity: 0.7;
+    }
+
+    /*Styling home news box */
+    .home-news-box{
+
+        /*typical styling*/
+        background: #efdecd;
+        padding: 20px;
+        width :91%;
+
+        /*Giving it a margi top 55px so that it is on the bottom of news title*/
+        margin-top:55px;
+        margin-bottom: 0px;
+
+
+        /*Setting the position to relative so that the home news is absolute to it moves with it and are stacked*/
+        position: relative;
+
+
+    }
+
+
+    /*styling paragraph h3 tags in home news box */
+    .home-news-box h3{
+
+        /*typical styling*/
+        font-size: 15px;
+        text-align: left;
+        margin: 10px 10px;
+        color:#000;
+    }
+
+    /* Styling links in home news box*/
+    .home-news-box a {
+        /*removing underline*/
+        text-decoration: none;
+        color:#35201C
+    }
+
+    /*Styling how links look when you hover over them in home news box*/
+    .home-news-box a:hover{
+        /*adding underline only when you hover over it*/
+        text-decoration: underline;
+        color:#1c8fad;
+    }
+
+    /*Styling home news articles content*/
+    .home-news-article{
+        text-align: left;
+        /*only change the top and bottom padding to leave some space*/
+        padding: 5px 0px;
+        /*no margins*/
+        margin: 0px 0px;
+    }
+
+    /*---Join member banner in Home Page-----*/
+
+    /* Styling join member box as a whole*/
+    .join-member{
+        /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 0px 50px;
+    }
+
+    /*Styling join title*/
+    .join-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+    }
+
+    /* Styling the photo banner*/
+    .join-photo {
+
+        /* Setting margin top and bottom to 55px so that the title box and photo box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+
+        margin-top: 55px;
+        margin-bottom: 0px;
+
+        /*Setting the position to relative so that the join title is absolute to it moves with it and are stacked*/
+        position:relative;
+    }
+
+    /* styling the image only*/
+    .join-photo img{
+
+        /*setting the width and height of the image so that it's not taking over the whole page*/
+        width:96%;
+        height:150px;
+
+        /*setting the photo to cover so that it zoomes in/out depending on the screen size */
+        object-fit: cover;
+    }
+
+    /*Styling the image for when you hover over it*/
+    .join-photo a:hover{
+        opacity: 0.9;
+    }
+
+
+    /*------Calendar-----*/
+
+    /* For the Mock calendar in the home page I was inspired by the mock calendar that user @jamiemggs had posted on codepen, https://codepen.io/jamiemggs/pen/xdvaJv, so I have used some of their code after I fully understood it but changed many things to match it to my website for example, used fewer classes, removed border radius, matched the background colors, changed how to the dates with an agenda look, I also implemented the calendar inside the page using flexbox and etc etc. */
+
+    /*setting the calendar box including the Event title to flexbox column so that they are on top of each other */
+    .calendar{
+
+        /* Using flexbox column because I want the .cal-tile and .cal-box to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 10px 50px;
+    }
+
+    /* Setting the font stylings of the calendar title*/
+    .cal-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "EVENTS" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the calendar is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling the Calendar box*/
+    .cal-box {     
+
+
+        /*Setting the width of the boxto 315px */
+        width:315px;
+        /*Prevents scroll bars from showing up */
+        overflow:hidden; 
+        /* Setting display to block*/
+        display:flex; 
+        flex-direction: column;
+        /* Setting margin top and bottom to 55px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:55px 0px; 
+        /*Setting background color for all of the calendar box*/
+        background:#efdecd; 
+        /* setting padding */
+        padding:10px;  
+        /* setting thep ositionf og the caledar box to be relative to the calendar title*/
+        position: relative; 
+
+    }
+
+    /*Styling the month title inside the .cal-box*/
+    .cal-month {
+
+        /*typical font styling*/
+        font-size: 18px;
+        font-weight:900; 
+        text-transform:uppercase; 
+        text-align:center; 
+        letter-spacing:2px;
+        color:#35201C;
+
+        /* Setting displat to block so it takes one line*/
+        display:block; 
+
+        /*Giving it no margins, so that it's tightly close to the cal-box borders*/
+        margin: 0px 0px; 
+
+        /*Givign it padding of 10px in each direction just so it has more space and room to breathe*/
+        padding: 10px;
+    }
+    /*setting the margin of the days to auto so it centers itself*/
+    .cal-days{
+        margin: auto;
+    }
+   /*Setting display to flex, row so that the content of each div is in a row and wrap so thst each are on a new line*/
+    .cal-rows{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+    }
+    /*Styling any tag span inside the .cal-box*/
+    .cal-box  span {
+
+
+        /*typical font styling*/
+        font:15px 'montserrat'; 
+        font-weight:400; 
+        color:#35201C;
+        text-align:center;
+        line-height:50px;
+
+        /*Giving each span tag or basically each date inside the calendar width and height of 42 */
+        width:42px; 
+        height:42px; 
+
+        /*Setting display to inline-block so that they don't move to a new line each time*/
+        display:inline-block; 
+        /*Set them to float left*/
+        float:left; 
+        /*Had to give them a bit of margin on the left to make it centered in side the .cal-box*/
+        margin-left:2.5px;
+
+        /*Setting overflow to hidden so that if there's too many items and it has to scroll it doesn't show it*/
+        overflow:hidden; 
+
+
+    }
+
+    /*It set's the empty parts of the calendar to "O" and changes the opacity of it so that they are not too pronounced*/
+    .cal-box .empty:before {
+        opacity:0.3; 
+        content:'O';
+    }
+
+    /* It highlights the days that the club meetings are on*/
+    .highlight {   
+        background: #E3BD8C
+    }
+
+    /* It styles all the span tags with the attribute [data-title]. It uses hover:after to show a little box with the event descriptions as you hover over them*/
+    span[data-title]:hover:after {
+        /*setting typical font styles*/
+        font:12px 'montserrat'; 
+        font-weight:400; 
+        color:#f7f3eb; 
+
+        /*telling it the content is what is inside the attribute data-title in the html file*/
+        content:attr(data-title); 
+
+        /*setting the positin to absolute so that it doesn't change location each time, it is absolute to the dates */
+        position:absolute; 
+
+        /*Setting typical margin, background, padding*/
+        margin:0 0 100px; 
+        border:1px solid #f7f3eb;
+        padding:10px; 
+        background:#1c8fad;
+
+        /*setting a min width and maxwidth*/
+        min-width:100px; 
+        max-width:150px;     
+    }
+
+/*----------END OF HOME PAGE STYLES------------*/
+    /*4.4*/
+    /*=======================
+    Join Page TABLET & PHONE
+    =========================*/
+
+  /*Setting the display of the join form to be grid, four row that their sizes automatically and other typical stylings*/
+    form{
+
+        display: grid;
+        grid-template-rows: auto auto auto auto; 
+        text-align: center;
+        background: #E3BD8C;
+        margin:  20px 0px;
+        padding: 0px;
+    } 
+    
+    /*Setting the display of first name and last name input and label to grid two rows as well since each div has two rows*/  
+    .name{
+        display:grid;
+        grid-template-rows: auto auto; 
+
+    }
+    
+    /*just margin*/
+    .lname,.fname, .mail, .buttons{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    /*Calling fname separately to set the margin bottom to 0px so that we don't have awkward 40px in the middle of lname and fname*/
+    .fname{
+        margin-bottom: 0px; 
+    }
+    /*specifically the input for email address*/
+    #mail{
+
+        width:180px;
+
+    }
+    /*typical styles*/
+    input, label, button{
+        font-family: inherit;
+        font-size: 18px;
+    }
+    /*typical styles*/
+    .buttons{
+        text-align: center;
+    }
+    /*Changing the cursor so that the user knows #submit, #checkbox and even #checkbox-label are clickable as they hover over them*/
+    #submit:hover, #checkbox:hover, #checkbox-label:hover{
+        cursor: pointer;
+    }
+     /*Changing padding and sizing*/
+    #submit{
+        padding: 10px;
+        transform: scale(1);
+
+    }
+    /*Changing the size of the checkbox*/
+    #checkbox{
+        transform: scale(1.5);
+    }
+
+/*---------------END OF JOIN PAGE--------------*/
+    
+    /*4.5*/
+   /*========================
+    News Page Styling TABLET
+    ========================*/
+
+    /*Setting display to flex row, so that they are always next to each other*/
+    .all-news{
+        display:flex;
+        flex-direction: column;    
+    }
+
+    /*setting margins*/
+    .articles{
+        margin: 10px 20px;
+    }
+
+
+    /*removing underline and setting the color*/
+    .news-article article a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    
+    /*adding underline only when you hover over the links and changing the color */
+    .news-article article a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+
+    /*setting image properties to auto so it easily adjusts+*/
+    .news-article img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*tpyical styling*/
+    .news-article h2{
+        text-align: center;
+        margin: 40px 0px;
+    }
+    /*tpyical styling*/
+    .news-article article p{
+        font-size: 17px;
+    }
+
+    /*Typical styling, changing the width as well */
+    .archive-articles{
+        width:100%;
+        text-align: center;
+    
+    }
+    
+    /*Setting the background, margin*/
+    .archive-button{
+        background: #E3BD8C;
+        margin-bottom: 40px;
+    }
+    
+    /*Setting the cursor to a pointer as user hovers over the archive button*/
+    .archive-button:hover{
+        cursor: pointer;
+
+    }
+
+    /*setting the display to none and changing the width*/
+    .archive-dates{
+        display: none;
+        width:90%;
+    }
+    
+    /*creating a new class list for archive-dates with .show that has display flex and flex-dirextion is column, the JS that I wrote toggles between this and .archive-dates*/
+    .archive-dates.show{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /*Setting margin to 20px for the button facing down*/
+    #archive-button-down{
+        margin:20px;
+    }
+    /*creating a new class list for #archive-button-down with .hide that sets the display to none and hides the button so that the up button shows instead. The JS that I wrote toggles between this and .archive-button-down*/
+    #archive-button-down.hide{
+        display: none;
+    }
+    
+    /*setting display button up to none, so that the website doesn't show that until the eventListener toggles between this and #archive-button-up.show*/
+    #archive-button-up{
+        display: none;
+    }
+    
+   /*creating a new class list for #archive-button-up with .show that sets the display to inline-block and shows the button and the down button hides. The JS that I wrote toggles between this and .archive-button-up, i also change the margin here*/
+    #archive-button-up.show{
+        display: inline-block;
+        margin:20px;
+    }
+    
+
+    /*removing bullet points*/
+    .archive-articles ul{
+        list-style: none;
+        
+    }
+    /*removing underlines and setting color*/
+    .archive-articles a{
+        text-decoration: none; 
+        color: #CA8E3F;
+
+    }
+    /*Adding underline only when you hover to it and changing the color */
+    .archive-articles a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;   
+    }
+
+    /*typical styling*/
+    .page-num{
+        font-size: 22px;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 50px;
+    }
+    /*removing underline and setting the color*/
+    .page-num a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    /*adding underline only when you hover over the links and changing the color */
+    .page-num a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+    
+/*----------------END OF NEWS PAGE STYLES-------------*/
+     /*4.6*/  
+    /*========================
+    Beginner Lessons  TABLET
+    =========================*/
+    /*setting the display to flex column so that resizng would be very easy*/
+    .lessons{  
+        display: flex;
+        flex-direction: column;
+        margin: 20px 50px;
+    }
+    /*typical styling*/
+    .lessons p{
+        margin: 20px 10px;
+        font-size: 19px;
+    }
+
+    /*removing underlines*/
+    .lessons a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+    /*Bringing back the underlie and cursor pointer and cahange of color as you hover over the links*/
+    .lessons a:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        color:#1c8fad;
+    }
+
+    /*centering the images*/
+    .lessons img{
+        margin-left: auto;
+        margin-right: auto;
+        width:90%;
+    }
+    /*centering the youtube video*/
+    .lessons iframe{
+        margin-left: auto;
+        margin-right: auto;
+        width:90%;
+    }
+    /*styling the list*/
+    .lessons li{
+        font-size: 19px;
+        line-height: 2;
+        margin: 0px 0px;
+    }
+    /*setting display to block, and typical styles*/
+    .lesson-1{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-1-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-1-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-2{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-2-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-2-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-3{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-3-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-3-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+
+    /*setting display to block, and typical styles*/
+    .lesson-4{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-4-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-4-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-5{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-5-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-5-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-6{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-6-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-6-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+/*----------------END OF BEGINNER LESSONS------------------*/
+    /*4.7*/    
+    /*=======
+    About Us
+    =======*/
+
+    /*setting the display to flex and flex direction to column and giving it a bottom margin*/
+    .all-about{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /*removing underline and giving it a color*/
+    .all-about a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+
+    /*as you hover over the links changes the color*/
+    .all-about a:hover{
+        cursor: pointer;
+        text-decoration: none;
+        color:#1c8fad;
+    }
+
+    /*display flex column for the two classes inside this class*/
+    .leadership{
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+
+    /*giving photos a width and a height and border radius so they look circular*/
+    .leadership img{
+        width:100px;
+        height:100px;
+        object-fit: cover;
+        border-radius: 100%;
+        padding:30px;
+
+    }
+    /*removing bullet points and adding distance between lines*/
+    .leadership ul{
+        list-style: none;
+        font-size: 18px;
+        line-height: 2;
+    }
+
+    /*setting the two leadership roles in this class to be in column for tablets*/
+    .image-row-1{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /*setting the two leadership roles in this class to be in to column for tablets*/
+    .image-row-2{
+        display: flex;
+        flex-direction: column;
+    }
+    /*inside each leadership role, they are in row as well, adding some shadow and radius for aesthetics*/
+
+    .image{
+        display: flex;
+        flex-direction: row;
+        /* 10px in the right and 10px down and 20 px blur*/
+        box-shadow: 10px 10px 20px  #E3BD8C;
+        margin:10px 30px;
+        padding: 40px;
+        border-radius: 50px;
+
+    }
+
+    /*Animation as you hover over each leadership role*/
+    /*changes the size just a bit and it transitions back in 250ms*/
+    .image:hover{
+        transform: scale(1.05);
+        transition: 250ms ease-in-out;
+    }
+
+/*---------End of Styling About us page------------*/
+    
+    /*4.8*/
+    /*============================
+    Footer Styling TABLET & PHONE
+    =============================*/
+
+    /* Setting theb ackground the same as navbar*/
+    footer{
+        background: #CA8E3F;
+    }
+
+    /*----footer nav------*/
+
+    /*Set it to display as none for small screens since we already have the hamburger menu*/
+    .footer-nav{
+        display: none;
+    }
+
+
+    /*----Social Media Icons in the Footer--*/
+
+    /* To create social media icons, I learned from  w3school page: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp .  After fully understanding what it does, I tried to implement it. What it basically does is: it uses a font aweosme icon library and each element is called in by a specific font awesome class and then you easily style the icons as normals using css. i.e. giving it a backgroubnd etc. I added links and edited the links to have realistic accounts */
+
+    /*setting margin and padding in addition to set it to flexbox column so that they are all on top of each other*/
+    .socialmedia{
+        text-align: center;
+        margin:auto;
+        display: flex;
+        flex-direction: column;
+    }
+    /* Edits only the contact us email link, removes the underline and matches the color to the rest of the text links*/
+    
+    h4 a{
+        text-decoration: none;
+        color: #35201C;
+   
+    }
+
+    /*Changing the color as you hover over it and adding underline only when you hover over the links*/
+    h4 a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+
+    /* typical styling of font awesome class as a whole, this effects all of the social media icons */
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+
+        /*making it look like a circle*/
+        border-radius: 90%;
+    }
+
+    /*Changing the opacity of the icons only when you hover over the links*/
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    /*Giving it the blue color of facebook and setting the symbol color to white, since it acts as a text */
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+
+    /*Giving it the gradient color of instagram and setting the symbol color to white, since it acts as a text */
+    /* To find the gradient color od instagram i used this website which was very helpful: http://www.brandgradients.com/instagram-colors/ */
+    .fa-instagram {
+        background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        color: white;
+    }
+
+    /*Giving it the purple color of twitch and setting the symbol color to white, since it acts as a text */
+    .fa-twitch {
+        background: #6441a5;
+        color: white;
+    }
+/*-------------END OF FOOTER STYLES-------------*/
+}
+
+
+
+/*=========
+ 5. PHONES
+===========*/
+@media screen and (max-width:480px){
+    /*5.1*/
+   /*================
+    Navigation PHONES
+    =================*/ 
+    
+    /*just setting the font size*/
+    main p{
+        
+        font-size: 18px;
+    }
+
+    /*For the hamburger menu I found an online tutorial : https://youtu.be/ydZc17rlR5E by Florin Pop and used some of his code after I fully understood it, it's pretty straight forward actually: you create a button, import the symbol using font awesome, then using @media queries css we, set the properties of the button to hide when the screen is big enough and we don't need a hamburger menu , but when the page is small, we set the navigation link to hide and the hamburger menu to show. Later we manipulate this in javascript using an event listener that checks for a click on the element id bars as soon as bars is clicked, it changes the css property of navigation links to show*/
+
+    /* Setting the width of navbar to 90% and giving it a margin of zero */
+    .navbar{     
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Setting the header color*/
+    header{
+        background-color: #CA8E3F ;
+    }
+    
+    /* I have to use this because when i used float to put the logo on the left and the navigation links on the right, the float shrinks the header's background. So I had to use a after pseudoeffect to bring back the header*/
+    
+    header::after{
+        content:'';
+        display: block;
+        clear: both;
+    }
+    
+    .logo{
+        padding: 10px;
+        width:50%;
+        float:left;
+    }
+    
+    /* setting the hamburger menu so that it's transparent and has no borders and the color is set to be white as well. Display set to block, floats right and has a padding of 1em */
+    .bars{
+        background-color:transparent;
+        border: 0;
+        color:white;
+        font-size: 30px;
+        cursor: pointer;
+        display:block;
+        float:right;
+        padding:1em;
+         
+    }
+    
+    /* when clicked, it won't have an outline either */
+    .bars:focus{
+        outline:none;
+    }
+    /*setting the flex wrap to wrap so that it comfortably goes to a new line*/
+    nav{
+        flex-wrap: wrap;
+        text-align: right;
+        padding: 40px;
+        font-size: 20px;
+        line-height: 2;       
+    }
+    
+    /* removing underlines from the navigation links */
+    nav a{
+        
+        text-decoration:none;
+        color:white;
+    }
+    
+    /*changing the color of the links only as you hover over them*/
+    nav a:hover{
+        color:#35201C;
+    }
+    /* removing the bullet points*/
+    nav ul{
+         list-style: none;
+        
+    }
+    
+    /*Setting the navigation display to not show as deafult and using flex to keep it as a column*/
+    .navigation{
+        display: none;
+        width:100%;
+        flex-direction: column;
+    }
+    /*Setting navigation when it shows, or clicked by or told by the JS to show to display as flex*/
+     .navigation.show{
+        display:flex;
+    }
+/*----------END OF NAVIGATION BAR STYLES-------*/
+    
+    /*5.2*/    
+    /*==========================
+    Breadcrumb Navigation PHONE
+    ============================*/
+
+    /* For breadcrumb navigation i was inspired by w3school's simple article on it which I tried to implement after fully understanding it. I fully changed the code to implement in the website for example, I changed the typical styles, such as margins, padding, background, text-align, font-size, display, etc. I also changed the symbols between the navigations links*/
+    
+    
+    /* removing the bullet points and other typical styles  */
+    ul.breadcrumb-nav {
+        padding: 5px 20px;
+        margin: auto;
+        list-style: none;
+        background-color: #eee;
+        text-align: center;
+    }
+    
+    /* changing the color and making font size smaller for phones*/
+    ul.breadcrumb-nav li {
+        color: #CA8E3F;
+        display: inline-block;
+        font-size: 15px;
+
+    }
+    
+     /* Adding a ⪼ in in between the two li tags using :before pseudoelement to add cosmetics before the selected tag and "+" to select the adjecent sibiling li to the first li */
+    ul.breadcrumb-nav li+li:before {
+        padding: 8px;
+        color: #000;
+        content: "⪼";
+     }
+    
+    /*removing underline*/
+    ul.breadcrumb-nav li a {
+        color: #35201C;
+        text-decoration: none;
+    }
+    
+    /*adding underline only when you hover over the links*/
+    ul.breadcrumb-nav li a:hover {
+
+        color: #1c8fad;
+        text-decoration: underline;
+    }
+/*---------End of Breadcrumb navigation----------*/ 
+    /*5.3*/
+    /*===============
+    =================
+    Home Page PHONE
+    =================
+    ================*/
+    /*-----Styling all home content----*/
+    .all-home{
+        /*Setting the display to flex and row so that they are in a row arrangement*/
+        display:flex;
+        flex-direction:column;
+
+        margin-bottom: 100px;
+        margin-top: 50px;
+    }
+    /*---Styling the .first-column that includes the home news box as well become a member box---*/
+    /*.first-column{*/
+        /* Setting display to flex and column so that they are on top of each other*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*}*/
+
+    /*----News Box in the Home Page---*/
+    .home-news{
+         /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 20px 0px;
+    }
+
+    /* News title in the homepage */
+    .home-news-title {
+
+        /* aligning text to the center*/
+        text-align: center; 
+        /* Setting font size to 13px */
+        font-size: 11px;
+        /*Transforming the text to all upper case*/
+        text-transform: uppercase;
+        /* Giving a letter spacing of 1px between each letter of the title's text*/
+        letter-spacing: 1px;
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .home-news as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling links in the news title*/
+    .home-news-title a{
+        text-decoration: none;
+        color: #35201C;
+    }
+
+    /* Styling the home news title box as a whole so that when you hover over it the opacity changes*/
+    .home-news-title:hover{
+        opacity: 0.7;
+    }
+
+    /*Styling home news box */
+    .home-news-box{
+
+        /*typical styling*/
+        background: #efdecd;
+        padding: 10px;
+        width :auto;
+
+        /*Giving it a margin top 47px so that it is on the bottom of news title*/
+        margin-top:47px;
+        margin-bottom: 0px;
+
+
+        /*Setting the position to relative so that the home news is absolute to it moves with it and are stacked*/
+        position: relative;
+
+
+    }
+
+
+    /*styling paragraph h3 tags in home news box */
+    .home-news-box h3{
+
+        /*typical styling*/
+        font-size: 15px;
+        text-align: left;
+        margin: 10px 10px;
+        color:#000;
+    }
+
+    /* Styling links in home news box*/
+    .home-news-box a {
+        /*removing underline*/
+        text-decoration: none;
+        color:#35201C
+    }
+
+    /*Styling how links look when you hover over them in home news box*/
+    .home-news-box a:hover{
+        /*adding underline only when you hover over it*/
+        text-decoration: underline;
+        color:#1c8fad;
+    }
+
+    /*Styling home news articles content*/
+    .home-news-article{
+        text-align: left;
+        /*only change the top and bottom padding to leave some space*/
+        padding: 5px 0px;
+        /*no margins*/
+        margin: 0px 0px;
+    }
+
+    /*---Join member banner in Home Page-----*/
+
+    /* Styling join member box as a whole*/
+    .join-member{
+        /* Using flexbox column because I want the .cal-tile and .join-member to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 0px 0px;
+    }
+
+    /*Styling join title*/
+    .join-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "JOIN" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the member photo is relative to it moves with it and are stacked*/
+        position: absolute;
+    }
+
+    /* Styling the photo banner*/
+    .join-photo {
+
+        /* Setting margin top and bottom to 47px so that the title box and photo box are right on top of each other, giving it a margin of 0px so that I only edit the .join-member as whole to give it margins and paddings*/
+
+        margin-top: 47px;
+        margin-bottom: 20px;
+
+        /*Setting the position to relative so that the join title is absolute to it moves with it and are stacked*/
+        position:relative;
+    }
+
+    /* styling the image only*/
+    .join-photo img{
+
+        /*setting the width and height of the image so that it's not taking over the whole page*/
+        width:100%;
+        height:150px;
+
+        /*setting the photo to cover so that it zoomes in/out depending on the screen size */
+        object-fit: cover;
+    }
+
+    /*Styling the image for when you hover over it*/
+    .join-photo a:hover{
+        opacity: 0.9;
+    }
+
+
+    /*------Calendar-----*/
+
+    /* For the Mock calendar in the home page I was inspired by the mock calendar that user @jamiemggs had posted on codepen, https://codepen.io/jamiemggs/pen/xdvaJv, so I have used some of their code after I fully understood it but changed many things to match it to my website for example, used fewer classes, removed border radius, matched the background colors, changed how to the dates with an agenda look, I also implemented the calendar inside the page using flexbox and etc etc. */
+
+    /*setting the calendar box including the Event title to flexbox column so that they are on top of each other */
+    .calendar{
+
+        /* Using flexbox column because I want the .cal-tile and .cal-box to move with each other and easily resize*/
+        display:flex;
+        flex-direction: column;
+
+        /*Giving it a margin of 30px in each direction*/
+        margin: 0px 0px;
+        padding:0px
+    }
+
+    /* Setting the font stylings of the calendar title*/
+    .cal-title{
+
+        /*typical font styling*/
+        text-align: center; 
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        /* Setting margin top and bottom to 0px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:  0px 0px;
+        /*Giving it no padding on the top and bottom but a padding of 20px for left and right so that it has some room in the box*/
+        padding: 0px 10px;
+        /*Setting background color for only the "EVENTS" title*/
+        background: #E3BD8C;
+        /*Setting the position to absolute so that the calendar is relative to it moves with it and are stacked*/
+        position: absolute;
+
+    }
+
+    /* Styling the Calendar box*/
+    .cal-box {     
+
+
+        /*Setting the width of the box to 315px */
+        width:100%;
+        /*Prevents scroll bars from showing up */
+        overflow:hidden; 
+        /* Setting display to block*/
+        display:flex; 
+        flex-direction: column;
+        /* Setting margin top and bottom to 47px so that the title box and calendar box are right on top of each other, giving it a margin of 0px so that I only edit the .calendar as whole to give it margins and paddings*/
+        margin:47px 0px; 
+        /*Setting background color for all of the calendar box*/
+        background:#efdecd; 
+
+        /* setting thep ositionf og the caledar box to be relative to the calendar title*/
+        position: relative; 
+
+    }
+
+    /*Styling the month title inside the .cal-box*/
+    .cal-month {
+
+        /*typical font styling*/
+        font-size: 18px;
+        font-weight:900; 
+        text-transform:uppercase; 
+        text-align:center; 
+        letter-spacing:2px;
+        color:#35201C;
+
+        /* Setting displat to block so it takes one line*/
+        display:block; 
+
+        /*Giving it no margins, so that it's tightly close to the cal-box borders*/
+        margin: 0px 0px; 
+
+        /*Givign it padding of 10px in each direction just so it has more space and room to breathe*/
+        padding: 10px;
+    }
+    /*setting the margin of the days to auto so it centers itself*/
+    .cal-days{
+        margin: 0px auto;
+    }
+   /*Setting display to flex, row so that the content of each div is in a row and wrap so thst each are on a new line*/
+    .cal-rows{
+            display:flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+    }
+    /*Styling any tag span inside the .cal-box*/
+    .cal-box  span {
+
+
+        /*typical font styling*/
+        font:15px 'montserrat'; 
+        font-weight:400; 
+        color:#35201C;
+        text-align:center;
+        line-height:50px;
+
+        /*Giving each span tag or basically each date inside the calendar width and height of 42 */
+        width:40px; 
+        height:40px; 
+
+        /*Setting overflow to hidden so that if there's too many items and it has to scroll it doesn't show it*/
+        overflow:hidden; 
+
+
+    }
+
+    /*It set's the empty parts of the calendar to "O" and changes the opacity of it so that they are not too pronounced*/
+    .cal-box .empty:before {
+        opacity:0.3; 
+        content:'O';
+    }
+
+    /* It highlights the days that the club meetings are on*/
+    .highlight {   
+        background: #E3BD8C
+    }
+
+    /* It styles all the span tags with the attribute [data-title]. It uses hover:after to show a little box with the event descriptions as you hover over them*/
+    span[data-title]:hover:after {
+        /*setting typical font styles*/
+        font:12px 'montserrat'; 
+        font-weight:400; 
+        color:#f7f3eb; 
+
+        /*telling it the content is what is inside the attribute data-title in the html file*/
+        content:attr(data-title); 
+
+        /*setting the positin to absolute so that it doesn't change location each time, it is absolute to the dates */
+        position:absolute; 
+
+        /*Setting typical margin, background, padding*/
+        margin:0 0 100px; 
+        border:1px solid #f7f3eb;
+        padding:10px; 
+        background:#1c8fad;
+
+        /*setting a min width and maxwidth*/
+        min-width:100px; 
+        max-width:150px;     
+    }
+    
+        
+/*-----------END OF HOME PAGE STYLES--------------*/
+    /*5.4*/
+    /*=============
+    Join Page PHONE
+    ===============*/
+  
+    /*Setting the display of the join form to be grid, four row that their sizes automatically and other typical stylings*/
+
+    form{
+
+        display: grid;
+        grid-template-rows: auto auto auto auto; 
+        text-align: center;
+        background: #E3BD8C;
+        margin:  20px 0px;
+        padding: 0px;
+    } 
+
+    /*Setting the display of first name and last name input and label to grid two rows as well since each div has two rows*/ 
+    .name{
+        display:grid;
+        grid-template-rows: auto auto; 
+
+    }
+    
+    /*just margin*/
+     .lname, .fname, .email, .buttons{
+        margin: 20px;   
+    }
+    
+    /*Calling fname separately to set the margin bottom to 0px so that we don't have awkward 40px in the middle of lname and fname*/
+    .fname{
+        margin-bottom: 0px; 
+    }
+    
+    /*specifically the input for email address*/
+    #mail{
+
+        width:160px;
+
+    }
+    /*typical styles*/
+    input, label, button{
+        font-family: inherit;
+        font-size: 18px;
+    }
+    /*typical styles*/
+    .buttons{
+        text-align: center;
+    }
+    /*Changing the cursor so that the user knows #submit, #checkbox and even #checkbox-label are clickable as they hover over them*/
+    #submit:hover, #checkbox:hover, #checkbox-label:hover{
+        cursor: pointer;
+    }
+    /*Changing padding and sizing*/
+    #submit{
+        padding: 10px;
+        transform: scale(1);
+
+    }
+    /*Changing the size of the checkbox*/
+    #checkbox{
+        transform: scale(1.5);
+    }
+ /*----------------------END OF JOIN PAGE STYLES---------------*/
+    
+    /*5.5*/   
+   /*================
+    News Page Styling
+    =================*/
+
+    /*Setting display to flex row, so that they are always next to each other*/
+    .all-news{
+        display:flex;
+        flex-direction: column;    
+    }
+
+    /*setting margins*/
+    .articles{
+        margin: 10px 20px;
+    }
+
+
+    /*removing underline and setting the color*/
+    .news-article article a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    
+    /*adding underline only when you hover over the links and changing the color */
+    .news-article article a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+
+    /*setting image properties to auto so it easily adjusts+*/
+    .news-article img {
+        display: block;
+        width:80%;
+        object-fit: contain;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .news-article h2{
+        
+        font-size: 20px;
+        text-align: center;
+        margin: 20px 0px;
+    }
+
+    .news-article article p{
+        font-size: 15px;
+        margin: 20px 0px;
+    }
+
+    /*Typical styling, changing the width as well */
+    .archive-articles{
+        width:100%;
+        text-align: center;
+    
+    }
+    
+    /*Setting the background, margin*/
+    .archive-button{
+        background: #E3BD8C;
+        margin-bottom: 40px;
+    }
+    
+    /*Setting the cursor to a pointer as user hovers over the archive button*/
+    .archive-button:hover{
+        cursor: pointer;
+
+    }
+
+    /*setting the display to none and changing the width*/
+    .archive-dates{
+        display: none;
+        width:90%;
+    }
+    
+    /*creating a new class list for archive-dates with .show that has display flex and flex-dirextion is column, the JS that I wrote toggles between this and .archive-dates*/
+    .archive-dates.show{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /*Setting margin to 20px for the button facing down*/
+    #archive-button-down{
+        margin:20px;
+    }
+    /*creating a new class list for #archive-button-down with .hide that sets the display to none and hides the button so that the up button shows instead. The JS that I wrote toggles between this and .archive-button-down*/
+    #archive-button-down.hide{
+        display: none;
+    }
+    
+    /*setting display button up to none, so that the website doesn't show that until the eventListener toggles between this and #archive-button-up.show*/
+    #archive-button-up{
+        display: none;
+    }
+    
+   /*creating a new class list for #archive-button-up with .show that sets the display to inline-block and shows the button and the down button hides. The JS that I wrote toggles between this and .archive-button-up, i also change the margin here*/
+    #archive-button-up.show{
+        display: inline-block;
+        margin:20px;
+    }
+    
+
+    /*removing bullet points*/
+    .archive-articles ul{
+        list-style: none;
+        
+    }
+    /*removing underlines and setting color*/
+    .archive-articles a{
+        text-decoration: none; 
+        color: #CA8E3F;
+
+    }
+    /*Adding underline only when you hover to it and changing the color */
+    .archive-articles a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;   
+    }
+
+    /*typical styling*/
+    .page-num{
+        font-size: 22px;
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+    /*removing underline and setting the color*/
+    .page-num a{
+        text-decoration: none;
+        color: #CA8E3F;
+    }
+    /*adding underline only when you hover over the links and changing the color */
+    .page-num a:hover{
+        text-decoration: underline; 
+        color:#1c8fad;
+    }
+    
+/*----------------END OF NEWS PAGE STYLES-------------*/
+     /*5.6*/  
+    /*======================
+    Beginner Lessons PHONES
+    =======================*/
+    /*setting the display to flex column so that resizng would be very easy*/
+    .lessons{  
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0px;
+    }
+    /*typical styling*/
+    .lessons p{
+        margin: 20px 5px;
+        font-size: 17px;
+    }
+    
+    .lessons h2{
+        font-size: 20px;
+    }
+
+    /*removing underlines*/
+    .lessons a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+    /*Bringing back the underlie and cursor pointer and cahange of color as you hover over the links*/
+    .lessons a:hover{
+        text-decoration: underline;
+        cursor: pointer;
+        color:#1c8fad;
+    }
+
+    /*centering the images*/
+    .lessons img{
+        margin-left: auto;
+        margin-right: auto;
+        width:90%;
+    }
+    /*centering the youtube video*/
+    .lessons iframe{
+        margin-left: auto;
+        margin-right: auto;
+        width:90%;
+    }
+    /*styling the list*/
+    .lessons li{
+        font-size: 15px;
+        line-height: 2;
+        margin: 5px;
+    }
+    /*setting display to block, and typical styles*/
+    .lesson-1{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-1-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-1-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-1-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-1-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-2{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-2-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-2-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-2-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-2-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-3{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-3-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-3-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-3-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-3-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+
+    /*setting display to block, and typical styles*/
+    .lesson-4{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-4-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-4-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-4-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-4-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-5{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-5-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-5-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-5-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-5-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+
+    /*setting display to block, and typical styles*/
+    .lesson-6{
+        display:block;
+        margin-bottom:10px;
+        padding:20px;   
+    }
+
+    /*giving the lesson title a background*/
+    .lesson-6-title{
+        background: #E3BD8C;
+        padding: 5px;
+    }
+
+    /* changing the cursor type*/
+    .lesson-6-title:hover{
+        cursor:pointer;
+    }
+
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-down.hide{
+        display:none;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-button-up{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-button-up.show{
+        display:inline-flex;
+    }
+    /*display none so it it doesn't show anything yet*/
+    #lesson-6-dscrp{
+        display:none;
+    }
+    /*creating a new class list to toggle between using JS*/
+    #lesson-6-dscrp.show{
+        display:flex;
+        flex-direction: column;
+    }
+/*----------------END OF BEGINNER LESSONS------------------*/
+    /*5.7*/    
+    /*=======
+    About Us
+    =======*/
+
+    /*setting the display to flex and flex direction to column and giving it a bottom margin*/
+    .all-about{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /*removing underline and giving it a color*/
+    .all-about a{
+        text-decoration: none;
+        color:#CA8E3F;
+    }
+
+    /*as you hover over the links changes the color*/
+    .all-about a:hover{
+        cursor: pointer;
+        text-decoration: none;
+        color:#1c8fad;
+    }
+
+    /*display flex column for the two classes inside this class*/
+    .leadership{
+        display: flex;
+        flex-direction: column;
+        margin: 40px auto;
+    }
+
+    /*giving photos a width and a height and border radius so they look circular*/
+    .leadership img{
+        width:100px;
+        height:100px;
+        object-fit: cover;
+        border-radius: 100%;
+        padding:30px;
+        margin: 10px auto;
+
+    }
+    /*removing bullet points and adding distance between lines*/
+    .leadership ul{
+        list-style: none;
+        font-size: 14px;
+        line-height: 2;
+    }
+
+    /*setting the two leadership roles in this class to be in column for small screens*/
+    .image-row-1{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    /*setting the two leadership roles in this class to be in column for small screens*/
+    .image-row-2{
+        display: flex;
+        flex-direction: column;
+    }
+    /*inside each leadership role, they are in row as well, adding some shadow and radius for aesthetics*/
+
+    .image{
+        display: flex;
+        flex-direction: column;
+        /* 10px in the right and 10px down and 20 px blur*/
+        box-shadow: 10px 10px 20px  #E3BD8C;
+        margin:10px 10px;
+        padding: 10px;
+        border-radius: 50px;
+
+    }
+
+    /*Animation as you hover over each leadership role*/
+    /*changes the size just a bit and it transitions back in 250ms*/
+    .image:hover{
+        transform: scale(1.05);
+        transition: 250ms ease-in-out;
+    }
+
+/*---------End of Styling About us page------------*/
+    /*5.8*/
+    /*==================
+    Footer Styling PHONE
+    ====================*/
+
+    /* Setting theb ackground the same as navbar*/
+    footer{
+        background: #CA8E3F;
+
+    }
+
+    /*----footer nav------*/
+
+    /*Set it to display as none for small screens since we already have the hamburger menu*/
+    .footer-nav{
+        display: none;
+    }
+
+    /*----Social Media Icons in the Footer--*/
+
+    /* To create social media icons, I learned from  w3school page: https://www.w3schools.com/howto/howto_css_social_media_buttons.asp .  After fully understanding what it does, I tried to implement it. What it basically does is: it uses a font aweosme icon library and each element is called in by a specific font awesome class and then you easily style the icons as normals using css. i.e. giving it a backgroubnd etc. I added links and edited the links to have realistic accounts */
+
+    /*setting margin and padding in addition to set it to flexbox column so that they are all on top of each other*/
+    .socialmedia{
+        text-align: center;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+    /* Edits only the contact us email link, removes the underline and matches the color to the rest of the text links*/
+    
+    h4 a{
+        text-decoration: none;
+        color: #35201C;
+   
+    }
+
+    /*Changing the color as you hover over it and adding underline only when you hover over the links*/
+    h4 a:hover{
+        color:white;
+        text-decoration: underline;
+    }
+
+    /* typical styling of font awesome class as a whole, this effects all of the social media icons */
+    .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+
+        /*making it look like a circle*/
+        border-radius: 90%;
+    }
+
+    /*Changing the opacity of the icons only when you hover over the links*/
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    /*Giving it the blue color of facebook and setting the symbol color to white, since it acts as a text */
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+
+    /*Giving it the gradient color of instagram and setting the symbol color to white, since it acts as a text */
+    /* To find the gradient color od instagram i used this website which was very helpful: http://www.brandgradients.com/instagram-colors/ */
+    .fa-instagram {
+        background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+        color: white;
+    }
+
+    /*Giving it the purple color of twitch and setting the symbol color to white, since it acts as a text */
+    .fa-twitch {
+        background: #6441a5;
+        color: white;
+    }
+
+ /*-------------END OF FOOTER STYLES-------------*/   
+}
+
+
+
